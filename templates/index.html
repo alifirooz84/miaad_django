@@ -7,8 +7,8 @@
 
 {% block content %}
 
-<!-- سکشن ۱: هیرو تمام‌صفحه (بدون نمایش بخش سفید در دید اول - min-h-screen) -->
-<section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden" 
+<!-- سکشن ۱: هیرو با اسلایدر پس‌زمینه و المان‌های شیشه‌ای -->
+<section id="hero" class="relative min-h-[85vh] lg:min-h-screen flex items-center justify-center overflow-hidden" 
          x-data="{ 
             currentSlide: 0, 
             slides: [
@@ -32,13 +32,12 @@
     </template>
 
     <!-- لایه تاریک و گرادینت شیشه‌ای روی پس‌زمینه -->
-    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/75 to-slate-900/60 backdrop-blur-[2px]"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-900/50 backdrop-blur-[2px]"></div>
 
     <!-- محتوای متنی هیرو با نشان درخشان برند -->
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 py-28 space-y-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 py-24 space-y-8">
         
-        <!-- مدال برند لوکس با لوگو -->
-        <div class="inline-flex items-center gap-3 px-5 py-2 rounded-full bg-slate-900/80 backdrop-blur-xl border border-orange-500/40 text-orange-400 text-xs sm:text-sm font-bold shadow-xl shadow-orange-500/10">
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-orange-400 text-xs sm:text-sm font-bold shadow-lg">
             <span class="w-6 h-6 rounded-lg bg-orange-500/20 flex items-center justify-center p-1 border border-orange-500/30">
                 <img src="{% static 'images/logo.png' %}" alt="لوگوی میعاد صنعت" class="w-full h-full object-contain filter drop-shadow">
             </span>
@@ -55,7 +54,7 @@
         </p>
 
         <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <a href="#products" class="bg-brand-orange hover:bg-orange-600 text-white font-black px-8 py-4 rounded-xl text-xs sm:text-sm transition duration-300 shadow-xl shadow-orange-500/25 flex items-center gap-2 group">
+            <a href="#products" class="bg-orange-500 hover:bg-orange-600 text-white font-black px-8 py-4 rounded-xl text-xs sm:text-sm transition duration-300 shadow-xl shadow-orange-500/25 flex items-center gap-2 group">
                 <span>مشاهده کاتالوگ محصولات</span>
                 <span class="material-symbols-outlined text-base group-hover:translate-y-0.5 transition">expand_more</span>
             </a>
@@ -70,7 +69,7 @@
             <template x-for="(slide, index) in slides" :key="index">
                 <button @click="currentSlide = index" 
                         class="h-2 rounded-full transition-all duration-300" 
-                        :class="currentSlide === index ? 'w-8 bg-brand-orange' : 'w-2 bg-white/40'"
+                        :class="currentSlide === index ? 'w-8 bg-orange-500' : 'w-2 bg-white/40'"
                         aria-label="تغییر اسلاید"></button>
             </template>
         </div>
@@ -78,8 +77,8 @@
     </div>
 </section>
 
-<!-- سکشن ۲: مستند کارخانه (کادربندی تمام‌عرض، واید و سینمایی) -->
-<section class="py-16 relative z-10 bg-slate-100 border-t border-slate-200/80"
+<!-- سکشن ۲: مستند کارخانه -->
+<section class="py-16 relative z-10 -mt-10"
          x-data="{
              initObserver() {
                  let observer = new IntersectionObserver((entries) => {
@@ -90,27 +89,26 @@
                              this.$refs.factoryVideo.pause();
                          }
                      });
-                 }, { threshold: 0.2 });
+                 }, { threshold: 0.3 });
                  observer.observe(this.$refs.videoBox);
              }
          }"
          x-init="initObserver()">
     
-    <div class="w-full max-w-[96rem] mx-auto px-3 sm:px-6 lg:px-8">
-        <div class="bg-white rounded-3xl p-4 sm:p-7 shadow-xl border border-slate-200 space-y-4">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-200/80 space-y-4">
             
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 px-2">
                 <div>
-                    <h2 class="text-slate-900 text-base sm:text-xl font-black">خطوط ساخت و تولید پیشرفته میعاد صنعت</h2>
-                    <p class="text-xs sm:text-sm text-slate-500 mt-1">آشنایی با توانمندی‌های بومی‌سازی و تست‌های متالورژی قطعات صنعتی</p>
+                    <h3 class="text-slate-900 text-base sm:text-lg font-black">خطوط ساخت و تولید پیشرفته میعاد صنعت</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">آشنایی با توانمندی‌های بومی‌سازی و تست‌های متالورژی قطعات صنعتی</p>
                 </div>
-                <span class="text-xs font-mono bg-slate-100 text-slate-700 border border-slate-200 px-3.5 py-1.5 rounded-lg font-bold">
+                <span class="text-xs font-mono bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 rounded-lg font-bold">
                     FULL HD • پخش خودکار
                 </span>
             </div>
 
-            <!-- کادر تمام‌عرض سینمایی -->
-            <div x-ref="videoBox" class="relative w-full aspect-[21/10] sm:aspect-[21/9] lg:h-[620px] rounded-2xl overflow-hidden bg-slate-950 shadow-2xl group">
+            <div x-ref="videoBox" class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 shadow-inner group">
                 <video x-ref="factoryVideo"
                        autoplay 
                        muted 
@@ -124,9 +122,9 @@
 
                 <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
 
-                <div class="absolute top-5 right-5 z-10 px-4 py-2 rounded-xl bg-slate-950/80 backdrop-blur-md text-xs font-bold text-orange-400 flex items-center gap-2 border border-white/10 pointer-events-none shadow-lg">
-                    <span class="w-2.5 h-2.5 rounded-full bg-brand-orange animate-ping"></span>
-                    تور مجازی خطوط تولید کارخانه
+                <div class="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md text-xs font-bold text-orange-400 flex items-center gap-2 border border-white/10 pointer-events-none">
+                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                    تور مجازی کارخانه
                 </div>
             </div>
 
@@ -134,27 +132,21 @@
     </div>
 </section>
 
-<!-- سکشن ۳: درباره ما (با کادر عکس کارخانه فوق‌العاده بزرگ و نمایش مجلل لوگو) -->
+<!-- سکشن ۳: درباره ما -->
 <section id="about" class="py-24 relative z-10 border-t border-slate-200/80 bg-slate-50/50">
-    <div class="max-w-[96rem] mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="bg-white rounded-3xl p-6 sm:p-12 lg:p-16 shadow-xl relative overflow-hidden border border-slate-200/90">
+        <div class="bg-white rounded-3xl p-8 sm:p-14 shadow-xl relative overflow-hidden border border-slate-200/90">
             <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-slate-900/5 rounded-full blur-3xl pointer-events-none"></div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
                 
-                <!-- ستون متن با نشان رسمی لوگو -->
-                <div class="lg:col-span-5 space-y-7 text-right">
-                    
-                    <div class="flex items-center gap-3.5">
-                        <div class="w-14 h-14 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 p-2.5 border-2 border-orange-500/40 shadow-xl shadow-orange-500/20 flex items-center justify-center shrink-0">
-                            <img src="{% static 'images/logo.png' %}" alt="لوگوی میعاد صنعت سیرجان گهر" class="w-full h-full object-contain filter drop-shadow-[0_0_8px_rgba(249,115,22,0.8)]">
-                        </div>
-                        <div>
-                            <span class="text-xs font-black text-brand-orange block">نشان رسمی اصالت و بومی‌سازی</span>
-                            <span class="text-xs text-slate-500 font-medium">پیشگام در متالورژی پیشرفته و کامپوزیت</span>
-                        </div>
+                <!-- ستون محتوا -->
+                <div class="lg:col-span-7 space-y-7 text-right">
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-black shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span>پیشگام در متالورژی پیشرفته و کامپوزیت</span>
                     </div>
 
                     <h2 class="text-3xl sm:text-5xl font-black text-slate-950 leading-[1.25] tracking-tight">
@@ -167,37 +159,25 @@
                     <p class="text-slate-600 text-sm sm:text-base leading-relaxed text-right font-normal">
                         با تکیه بر دانش فنی ساخت قطعات کامپوزیتی و ظرفیت نخبگان دانشگاهی با رویکرد و هدف تولید مهندسی ذغال موتورهای الکتریکی و قطعات کامپوزیتی صنعتی تأسیس گردید. این مجموعه با بومی‌سازی تخصصی ذغال‌های الکتریکی صنعتی، سرامیک‌های ضد سایش شوت‌ها و قطعات کامپوزیتی صنعتی، به عنوان تأمین‌کننده‌ای مطمئن برای بزرگترین مجتمع‌های معدنی و فولادی کشور شناخته می‌شود.
                     </p>
-
-                    <div class="flex flex-wrap gap-3 pt-2">
-                        <div class="px-4 py-2 rounded-xl bg-orange-50 border border-orange-200 text-orange-800 text-xs font-bold flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base text-brand-orange">verified</span>
-                            <span>تولید ۱۰۰٪ داخلی</span>
-                        </div>
-                        <div class="px-4 py-2 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 text-xs font-bold flex items-center gap-2">
-                            <span class="material-symbols-outlined text-base text-slate-600">science</span>
-                            <span>آزمایشگاه متالورژی پودر</span>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- ستون کادر بسیار بزرگ عکس کارخانه -->
-                <div class="lg:col-span-7">
-                    <div class="w-full h-[450px] sm:h-[540px] lg:h-[620px] rounded-3xl overflow-hidden relative border-4 border-white shadow-2xl group bg-slate-900">
+                <!-- ستون تصویر و لوگو -->
+                <div class="lg:col-span-5 flex flex-col gap-5">
+                    <div class="w-full h-80 sm:h-96 rounded-3xl overflow-hidden relative border-2 border-white shadow-xl group bg-slate-900">
                         <img src="{% static 'images/factory.jpg' %}" 
-                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';"
-                             alt="مجتمع تولیدی و کارخانه میعاد صنعت سیرجان گهر" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80';"
+                             alt="مجتمع تولیدی میعاد صنعت" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out opacity-90">
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
 
-                        <div class="absolute top-5 right-5 z-10 px-4 py-2 rounded-xl bg-white/95 backdrop-blur-md text-xs font-black text-slate-800 shadow-lg flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
-                            کارخانه و خطوط فرآوری میعاد صنعت
+                        <div class="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md text-[11px] font-bold text-slate-800 shadow-md flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                            کارخانه میعاد صنعت
                         </div>
 
-                        <div class="absolute bottom-6 right-6 left-6 z-10 text-white text-right">
-                            <div class="text-sm sm:text-base font-extrabold text-orange-400">شهرک صنعتی شماره یک سیرجان</div>
-                            <div class="text-xs text-slate-300 mt-1">واحد تولید متالورژی پودر، پرس هیدرولیک و آزمایشگاه کنترل کیفیت</div>
+                        <div class="absolute bottom-4 right-4 left-4 z-10 text-white text-right">
+                            <div class="text-xs font-extrabold text-orange-400">شهرک صنعتی شماره یک سیرجان</div>
                         </div>
                     </div>
                 </div>
@@ -209,44 +189,36 @@
     </div>
 </section>
 
-<!-- سکشن ۴: کاتالوگ محصولات با پس‌زمینه صنعتی مات (۴ محصول متناوب چپ و راست - بدون رزیستور) -->
-<section id="products" class="relative py-28 overflow-hidden bg-slate-950 border-t border-slate-800">
-    
-    <!-- عکس پس‌زمینه صنعتی مات‌شده و ثابت -->
-    <div class="absolute inset-0 bg-cover bg-center bg-fixed filter blur-sm scale-105 opacity-20"
-         style="background-image: url('{% static 'images/products-bg.jpg' %}');">
-    </div>
-    <!-- لایه گرادینت تیره عمیق جهت ایجاد کنتراست حداکثری کارت‌ها -->
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95 backdrop-blur-[2px]"></div>
-
+<!-- سکشن ۴: کاتالوگ محصولات با ساختار دو ستونه متناوب (طرح تمیز، یکدست و بدون رزیستور) -->
+<section id="products" class="relative py-28 bg-slate-100/70 border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         
         <!-- هدر بخش محصولات -->
         <div class="text-center max-w-3xl mx-auto mb-20 space-y-3">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-orange-400 text-xs font-bold shadow-xs mx-auto">
-                <span class="material-symbols-outlined text-sm text-brand-orange">category</span>
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold shadow-xs mx-auto">
+                <span class="material-symbols-outlined text-sm text-orange-500">category</span>
                 کاتالوگ مهندسی و مشخصات فنی متالورژی
             </div>
             
-            <h2 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
-                محصولات تخصصی و <span class="text-brand-orange">بومی‌سازی شده</span>
+            <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                محصولات تخصصی و <span class="text-orange-500">بومی‌سازی شده</span>
             </h2>
             
-            <p class="text-xs sm:text-sm text-slate-300 font-medium leading-relaxed">
+            <p class="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
                 طراحی دقیق، فرمولاسیون اختصاصی متالورژی پودر و ساخت سفارشی قطعات طبق نقشه و شرایط کاری کارفرما
             </p>
         </div>
 
-        <!-- لیست ۴ محصول متناوب چپ و راست -->
+        <!-- لیست باکس‌های بزرگ محصولات با چیدمان متناوب چپ و راست -->
         <div class="space-y-16">
 
             <!-- ۱. ذغال گرافیتی ویل موتور دامپتراک بلاز (عکس راست، متن چپ) -->
-            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                     <div class="w-full h-80 sm:h-96 lg:h-[480px] bg-slate-100 overflow-hidden">
                         <img src="{% static 'products/carbon-s195.png' %}" 
                              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1000&q=80';"
-                             alt="ذغال گرافیتی ویل موتور دامپتراک بلاز ص ۱۹۵" 
+                             alt="ذغال گرافیتی ویل موتور دامپتراک بلاز" 
                              class="w-full h-full object-cover hover:scale-105 transition duration-700">
                     </div>
                     <div class="p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-6 text-right">
@@ -258,7 +230,7 @@
                             تولید شده از پودر کربن با فرآیند پخت حرارتی بالا، هدایت الکتریکی عالی و کموتاسیون بدون جرقه مورد استفاده در ویل موتور دامپتراک‌های بلاز.
                         </p>
                         <div class="pt-2">
-                            <a href="{% url 'carbon_s195' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-brand-orange text-white font-bold text-sm transition duration-300 shadow-md group">
+                            <a href="{% url 'carbon_s195' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-orange-500 text-white font-bold text-sm transition duration-300 shadow-md group">
                                 <span>مشاهده مشخصات فنی</span>
                                 <span class="material-symbols-outlined text-base group-hover:-translate-x-1.5 transition duration-300">arrow_left</span>
                             </a>
@@ -268,7 +240,7 @@
             </div>
 
             <!-- ۲. ذغال مسی گرافیتی ح ۱۲۸ (عکس چپ، متن راست) -->
-            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                     <div class="p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-6 text-right order-2 lg:order-1">
                         <div class="space-y-2">
@@ -279,7 +251,7 @@
                             ترکیبی از پودر مس خالص و گرافیت روانکار با افت ولتاژ بسیار پایین جهت انتقال آمپراژ سنگین بدون شراره در اسلیپرینگ‌ها و ژنراتورها.
                         </p>
                         <div class="pt-2">
-                            <a href="{% url 'carbon_h128' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-brand-orange text-white font-bold text-sm transition duration-300 shadow-md group">
+                            <a href="{% url 'carbon_h128' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-orange-500 text-white font-bold text-sm transition duration-300 shadow-md group">
                                 <span>مشاهده مشخصات فنی</span>
                                 <span class="material-symbols-outlined text-base group-hover:-translate-x-1.5 transition duration-300">arrow_left</span>
                             </a>
@@ -288,19 +260,19 @@
                     <div class="w-full h-80 sm:h-96 lg:h-[480px] bg-slate-100 overflow-hidden order-1 lg:order-2">
                         <img src="{% static 'products/carbon-h128.png' %}" 
                              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=1000&q=80';"
-                             alt="ذغال مسی گرافیتی ح ۱۲۸" 
+                             alt="ذغال مسی گرافیتی ح _ 128" 
                              class="w-full h-full object-cover hover:scale-105 transition duration-700">
                     </div>
                 </div>
             </div>
 
             <!-- ۳. ذغال مسی گرافیتی ح ۱۱۸ (عکس راست، متن چپ) -->
-            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                     <div class="w-full h-80 sm:h-96 lg:h-[480px] bg-slate-100 overflow-hidden">
                         <img src="{% static 'products/carbon-h118.png' %}" 
                              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1000&q=80';"
-                             alt="ذغال مسی گرافیتی ح ۱۱۸" 
+                             alt="ذغال مسی گرافیتی ح _ 118" 
                              class="w-full h-full object-cover hover:scale-105 transition duration-700">
                     </div>
                     <div class="p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-6 text-right">
@@ -312,7 +284,7 @@
                             طراحی شده جهت هدایت مطمئن جریان‌های سرگردان شفت به زمین و جلوگیری قطعی از پیتینگ و تخریب بلبرینگ‌ها در توربین‌ها و موتورها.
                         </p>
                         <div class="pt-2">
-                            <a href="{% url 'carbon_h118' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-brand-orange text-white font-bold text-sm transition duration-300 shadow-md group">
+                            <a href="{% url 'carbon_h118' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-orange-500 text-white font-bold text-sm transition duration-300 shadow-md group">
                                 <span>مشاهده مشخصات فنی</span>
                                 <span class="material-symbols-outlined text-base group-hover:-translate-x-1.5 transition duration-300">arrow_left</span>
                             </a>
@@ -322,7 +294,7 @@
             </div>
 
             <!-- ۴. لاینرها و تایلهای سرامیکی شوتهای انتقال (عکس چپ، متن راست) -->
-            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200/90 shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
+            <div class="bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-xl transition-all duration-300">
                 <div class="grid grid-cols-1 lg:grid-cols-2 items-center">
                     <div class="p-8 sm:p-12 lg:p-16 flex flex-col justify-center space-y-6 text-right order-2 lg:order-1">
                         <div class="space-y-2">
@@ -333,7 +305,7 @@
                             پوشش‌های سرامیکی هگزاگونال و تایل‌های جوشی با سختی نزدیک به الماس جهت شوت‌های انتقال سنگ آهن و خطوط خردایش کنسانتره با ۱۰ برابر عمر بیشتر نسبت به هاردوکس.
                         </p>
                         <div class="pt-2">
-                            <a href="{% url 'ceramic_liner' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-brand-orange text-white font-bold text-sm transition duration-300 shadow-md group">
+                            <a href="{% url 'ceramic_liner' %}" class="inline-flex items-center gap-3 px-8 py-4 rounded-xl bg-slate-900 hover:bg-orange-500 text-white font-bold text-sm transition duration-300 shadow-md group">
                                 <span>مشاهده مشخصات فنی</span>
                                 <span class="material-symbols-outlined text-base group-hover:-translate-x-1.5 transition duration-300">arrow_left</span>
                             </a>
@@ -342,7 +314,7 @@
                     <div class="w-full h-80 sm:h-96 lg:h-[480px] bg-slate-100 overflow-hidden order-1 lg:order-2">
                         <img src="{% static 'products/ceramic-liner.png' %}" 
                              onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1000&q=80';"
-                             alt="لاینرها و تایلهای سرامیکی ضد سایش شوت" 
+                             alt="لاینرها و تایلهای سرامیکی شوتهای انتقال" 
                              class="w-full h-full object-cover hover:scale-105 transition duration-700">
                     </div>
                 </div>
@@ -353,7 +325,7 @@
     </div>
 </section>
 
-<!-- سکشن ۵: متخصصان و مدیران شرکت (با کادرهای بزرگتر و تصاویر پرتره واضح) -->
+<!-- سکشن ۵: متخصصان و مدیران شرکت -->
 <section id="team" class="py-24 relative z-10 border-t border-slate-200/80 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -366,81 +338,81 @@
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <!-- ۱. محمد امین جهانشاهی -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-5 flex flex-col justify-between group hover:shadow-2xl hover:border-orange-500/50 transition duration-300">
+            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl hover:border-orange-500/40 transition duration-300 text-right">
                 <div>
-                    <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden relative shadow-md bg-slate-200 border border-slate-200 mb-6">
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-sm bg-slate-100 border border-slate-200 mb-5">
                         <img src="{% static 'team/jahanshahi.jpg' %}" 
-                             alt="محمد امین جهانشاهی - مدیر فنی میعاد صنعت" 
+                             alt="محمد امین جهانشاهی" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
-                        <div class="absolute bottom-4 right-4 z-10">
-                            <span class="inline-block text-xs font-black text-white bg-brand-orange px-3.5 py-1.5 rounded-xl shadow-md">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 z-10">
+                            <span class="inline-block text-xs font-bold text-white bg-slate-900/90 border border-white/20 px-3 py-1 rounded-xl shadow-sm">
                                 مدیر فنی شرکت
                             </span>
                         </div>
                     </div>
                     <div class="px-2">
-                        <h3 class="text-xl font-black text-slate-950 text-right">محمد امین جهانشاهی</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed text-right">
+                        <h3 class="text-lg font-black text-slate-950">محمد امین جهانشاهی</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed text-right">
                             نظارت بر استانداردهای مهندسی، طراحی ابعادی قطعات گرافیتی و تطبیق نقشه‌ها با گریدهای بین‌المللی.
                         </p>
                     </div>
                 </div>
-                <div class="px-2 pt-4 mt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+                <div class="px-2 pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                     <span>واحد مهندسی و طراحی</span>
                     <span class="text-orange-600 font-bold">میعاد صنعت</span>
                 </div>
             </div>
 
             <!-- ۲. علی نصرت آبادی -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-5 flex flex-col justify-between group hover:shadow-2xl hover:border-orange-500/50 transition duration-300">
+            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl hover:border-orange-500/40 transition duration-300 text-right">
                 <div>
-                    <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden relative shadow-md bg-slate-200 border border-slate-200 mb-6">
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-sm bg-slate-100 border border-slate-200 mb-5">
                         <img src="{% static 'team/nosratabadi.jpg' %}" 
-                             alt="علی نصرت آبادی - مدیر تولید میعاد صنعت" 
+                             alt="علی نصرت آبادی" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
-                        <div class="absolute bottom-4 right-4 z-10">
-                            <span class="inline-block text-xs font-black text-white bg-brand-orange px-3.5 py-1.5 rounded-xl shadow-md">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 z-10">
+                            <span class="inline-block text-xs font-bold text-white bg-slate-900/90 border border-white/20 px-3 py-1 rounded-xl shadow-sm">
                                 مدیر تولید شرکت
                             </span>
                         </div>
                     </div>
                     <div class="px-2">
-                        <h3 class="text-xl font-black text-slate-950 text-right">علی نصرت آبادی</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed text-right">
+                        <h3 class="text-lg font-black text-slate-950">علی نصرت آبادی</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed text-right">
                             مدیریت خطوط ساخت ذغال‌های صنعتی، فرآیند پرس، پخت سرامیک‌های ضد سایش و کنترل کیفی اتصالات کابل.
                         </p>
                     </div>
                 </div>
-                <div class="px-2 pt-4 mt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+                <div class="px-2 pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                     <span>خطوط تولید و فرآوری</span>
                     <span class="text-orange-600 font-bold">میعاد صنعت</span>
                 </div>
             </div>
 
             <!-- ۳. حمید رضا اسماعیلی نژاد -->
-            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-5 flex flex-col justify-between group hover:shadow-2xl hover:border-orange-500/50 transition duration-300">
+            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl hover:border-orange-500/40 transition duration-300 text-right">
                 <div>
-                    <div class="w-full aspect-[4/5] rounded-2xl overflow-hidden relative shadow-md bg-slate-200 border border-slate-200 mb-6">
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-sm bg-slate-100 border border-slate-200 mb-5">
                         <img src="{% static 'team/esmaeili.jpg' %}" 
-                             alt="حمید رضا اسماعیلی نژاد - مدیر تحقیق و توسعه R&D" 
+                             alt="حمید رضا اسماعیلی نژاد" 
                              class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
-                        <div class="absolute bottom-4 right-4 z-10">
-                            <span class="inline-block text-xs font-black text-white bg-brand-orange px-3.5 py-1.5 rounded-xl shadow-md">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 right-3 z-10">
+                            <span class="inline-block text-xs font-bold text-white bg-slate-900/90 border border-white/20 px-3 py-1 rounded-xl shadow-sm">
                                 مدیر تحقیق و توسعه (R&D)
                             </span>
                         </div>
                     </div>
                     <div class="px-2">
-                        <h3 class="text-xl font-black text-slate-950 text-right">حمید رضا اسماعیلی نژاد</h3>
-                        <p class="text-xs sm:text-sm text-slate-600 mt-2.5 leading-relaxed text-right">
+                        <h3 class="text-lg font-black text-slate-950">حمید رضا اسماعیلی نژاد</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed text-right">
                             توسعه فرمولاسیون متالورژی پیشرفته، سنتز کامپوزیت‌های پلیمری و بهینه‌سازی مقاومت سایشی لاینرها.
                         </p>
                     </div>
                 </div>
-                <div class="px-2 pt-4 mt-6 border-t border-slate-200 flex items-center justify-between text-xs text-slate-500 font-medium">
+                <div class="px-2 pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-medium">
                     <span>تحقیقات متالورژی و مواد</span>
                     <span class="text-orange-600 font-bold">میعاد صنعت</span>
                 </div>
@@ -451,151 +423,151 @@
     </div>
 </section>
 
-<!-- سکشن ۶: اسلایدر بینهایت با لوگوهای دایره‌ای بزرگتر و انیمیشن روان -->
+<!-- سکشن ۶: اسلایدر بینهایت با لوگوهای دایره‌ای شرکتهای همکار -->
 <section id="partners" class="py-24 relative z-10 border-t border-slate-200/80 overflow-hidden bg-slate-50">
     <style>
         @keyframes scroll-infinite-rtl {
             0% { transform: translateX(0); }
             100% { transform: translateX(50%); }
         }
-        .marquee-track {
+        .marquee-container-rtl {
             display: flex;
             width: max-content;
-            animation: scroll-infinite-rtl 40s linear infinite;
+            animation: scroll-infinite-rtl 35s linear infinite;
         }
-        .marquee-track:hover {
+        .marquee-container-rtl:hover {
             animation-play-state: paused;
         }
     </style>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center">
         <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs sm:text-sm font-black shadow-sm mb-4">
-            <span class="material-symbols-outlined text-base text-brand-orange">handshake</span>
+            <span class="material-symbols-outlined text-base text-orange-500">handshake</span>
             <span>اعتبار، تعهد و پیشگامی در صنعت</span>
         </div>
         <h3 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
-            افتخار همکاری با <span class="text-brand-orange">صنایع بزرگ و مجتمع‌های معدنی کشور</span>
+            افتخار همکاری با <span class="text-orange-500">صنایع بزرگ و مجتمع‌های معدنی کشور</span>
         </h3>
         <p class="text-xs sm:text-base text-slate-600 mt-3 max-w-2xl mx-auto font-normal">
             تأمین و بومی‌سازی قطعات پیشرفته متالورژی، ذغال‌های خاص و لاینرهای ضد سایش برای قطب‌های اصلی فولاد و سنگ آهن
         </p>
     </div>
 
-    <!-- محفظه اسلایدر با ماسک فید اطراف -->
-    <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_15%,white_85%,transparent)]">
-        <div class="marquee-track items-center py-6">
+    <!-- محفظه اسلایدر با افکت محوشوندگی اطراف -->
+    <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <div class="marquee-container-rtl items-center py-8">
 
             <!-- ست اول لوگوها -->
-            <div class="flex items-center gap-14 shrink-0 pl-14">
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+            <div class="flex items-center gap-12 shrink-0 pl-12">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/golgohar.jpg' %}" alt="شرکت معدنی و صنعتی گل‌گهر" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی گل‌گهر</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی گل‌گهر</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/gohar-zamin.jpg' %}" alt="شرکت سنگ آهن گهرزمین" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">سنگ آهن گهرزمین</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">سنگ آهن گهرزمین</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/chadormalu.jpg' %}" alt="شرکت معدنی و صنعتی چادرملو" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی چادرملو</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی چادرملو</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/owlang.jpg' %}" alt="شرکت معدنکاری اولنگ" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنکاری اولنگ</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنکاری اولنگ</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/nazmavaran.png' %}" alt="شرکت نظم‌آوران صنعت و معدن" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">نظم‌آوران صنعت و معدن</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">نظم‌آوران صنعت و معدن</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/aryanaran.jpg' %}" alt="شرکت آریا ناران سرچشمه" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">آریا ناران سرچشمه</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">آریا ناران سرچشمه</span>
                 </div>
             </div>
 
             <!-- ست دوم لوگوها برای اتصال چرخش پیوسته -->
-            <div class="flex items-center gap-14 shrink-0 pl-14">
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+            <div class="flex items-center gap-12 shrink-0 pl-12">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/golgohar.jpg' %}" alt="شرکت معدنی و صنعتی گل‌گهر" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی گل‌گهر</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی گل‌گهر</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/gohar-zamin.jpg' %}" alt="شرکت سنگ آهن گهرزمین" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">سنگ آهن گهرزمین</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">سنگ آهن گهرزمین</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/chadormalu.jpg' %}" alt="شرکت معدنی و صنعتی چادرملو" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی چادرملو</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنی و صنعتی چادرملو</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/owlang.jpg' %}" alt="شرکت معدنکاری اولنگ" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنکاری اولنگ</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">معدنکاری اولنگ</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/nazmavaran.png' %}" alt="شرکت نظم‌آوران صنعت و معدن" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">نظم‌آوران صنعت و معدن</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">نظم‌آوران صنعت و معدن</span>
                 </div>
 
-                <div class="flex flex-col items-center gap-3.5 group cursor-pointer">
-                    <div class="w-44 h-44 sm:w-52 sm:h-52 rounded-full p-4 flex items-center justify-center border-4 border-white shadow-xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
-                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
                             <img src="{% static 'partners/aryanaran.jpg' %}" alt="شرکت آریا ناران سرچشمه" class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
                         </div>
                     </div>
-                    <span class="text-sm font-black text-slate-800 group-hover:text-orange-600 transition">آریا ناران سرچشمه</span>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">آریا ناران سرچشمه</span>
                 </div>
             </div>
 
@@ -603,95 +575,79 @@
     </div>
 </section>
 
-<!-- سکشن مقالات: با پس‌زمینه صنعتی مات، ۳ کارت بزرگ و لینک مستقیم به مقالات تخصصی -->
-<section id="articles" class="relative pt-28 pb-32 overflow-hidden bg-slate-900 border-t border-slate-800">
-    
-    <!-- پس‌زمینه صنعتی مات‌شده و ثابت -->
-    <div class="absolute inset-0 bg-cover bg-center bg-fixed filter blur-sm scale-105 opacity-25"
-         style="background-image: url('{% static 'images/industrial-bg.jpg' %}');">
-    </div>
-    <div class="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/80 to-slate-950/95"></div>
-
+<!-- سکشن ۷: مقالات و دانشنامه تخصصی با تم روشن و هماهنگ -->
+<section id="articles" class="relative pt-24 pb-32 bg-slate-100 border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
         
         <div class="text-center mb-16">
-            <span class="text-xs font-extrabold text-orange-400 uppercase tracking-wider">دانش فنی و متالورژی صنعتی</span>
-            <h2 class="text-3xl sm:text-5xl font-black text-white mt-2">دانشنامه و مقالات تخصصی</h2>
-            <p class="text-sm sm:text-base text-slate-300 mt-3 max-w-2xl mx-auto">آخرین دستاوردهای مهندسی معکوس، راهنمای انتخاب متریال و بررسی‌های فنی در حوزه متالورژی</p>
+            <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider">ارتقای دانش فنی</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">دانشنامه و مقالات تخصصی</h2>
+            <p class="text-sm text-slate-600 mt-3 max-w-2xl mx-auto">آخرین دستاوردها، راهنمای انتخاب متریال و بررسی‌های فنی در حوزه متالورژی و قطعات صنعتی</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             
-            <!-- مقاله ۱: ذغال‌های موتور DC -->
-            <div class="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-white/20">
-                <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+            <!-- مقاله ۱ -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-slate-200">
+                <div class="relative aspect-video overflow-hidden bg-slate-900">
                     <img src="{% static 'images/article-1.jpg' %}" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80';"
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80';"
                          alt="راهنمای ذغال صنعتی موتور DC" 
                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md text-orange-400 text-[11px] font-bold px-3 py-1 rounded-lg border border-white/10">
-                        الکتروموتورهای صنعتی
-                    </div>
                 </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <h3 class="text-base sm:text-lg font-black text-slate-900 mb-3 text-right leading-relaxed group-hover:text-brand-orange transition">
+                <div class="p-6 flex-1 flex flex-col text-right">
+                    <h3 class="text-base font-black text-slate-900 mb-3 leading-relaxed group-hover:text-orange-600 transition">
                         راهنمای جامع انتخاب بهترین گرید ذغال صنعتی برای موتورهای DC
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed text-right mb-6">
-                        بررسی متالورژیکی تشکیل لایه محافظ پاتینا، گریدبندی الکتروگرافیت و روش‌های رفع عیب جرقه کموتاتور در الکتروموتورهای سنگین.
+                    <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                        انتخاب گرید مناسب برای ذغال‌های الکتریکی، نقشی حیاتی در کیفیت نهایی کموتاسیون و طول عمر الکتروموتور ایفا می‌کند.
                     </p>
-                    <a href="{% url 'article_dc_motor' %}" class="mt-auto text-brand-orange font-bold text-xs sm:text-sm flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
-                        <span>مطالعه مقاله کامل</span>
+                    <a href="{% url 'article_dc_motor' %}" class="mt-auto text-orange-600 font-bold text-xs flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
+                        <span>مطالعه مقاله</span>
                         <span class="material-symbols-outlined text-sm">arrow_left</span>
                     </a>
                 </div>
             </div>
 
-            <!-- مقاله ۲: لاینرهای سرامیکی -->
-            <div class="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-white/20">
-                <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+            <!-- مقاله ۲ -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-slate-200">
+                <div class="relative aspect-video overflow-hidden bg-slate-900">
                     <img src="{% static 'images/article-2.jpg' %}" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';"
-                         alt="تفاوت لاینرهای سرامیکی و هاردوکس" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80';"
+                         alt="لاینرهای سرامیکی در برابر هاردوکس" 
                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md text-orange-400 text-[11px] font-bold px-3 py-1 rounded-lg border border-white/10">
-                        پوشش‌های ضد سایش
-                    </div>
                 </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <h3 class="text-base sm:text-lg font-black text-slate-900 mb-3 text-right leading-relaxed group-hover:text-brand-orange transition">
+                <div class="p-6 flex-1 flex flex-col text-right">
+                    <h3 class="text-base font-black text-slate-900 mb-3 leading-relaxed group-hover:text-orange-600 transition">
                         تفاوت کلیدی لاینرهای سرامیکی و هاردوکس: کدام برای معدن شما ایده‌آل است؟
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed text-right mb-6">
-                        مقایسه آزمایشگاهی سختی ۹ موس سرامیک آلومینا در برابر فولاد هاردوکس ۵۰۰ و تحلیل صرفه‌جویی اقتصادی در شوت‌های انتقال سنگ آهن.
+                    <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                        بررسی مقایسه‌ای طول عمر، نرخ سایش ضربه‌ای و راندمان اقتصادی پوشش‌های آلومینای فوق‌سخت در شوت‌ها و هاپرها.
                     </p>
-                    <a href="{% url 'article_ceramic_liner' %}" class="mt-auto text-brand-orange font-bold text-xs sm:text-sm flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
-                        <span>مطالعه مقاله کامل</span>
+                    <a href="{% url 'article_ceramic_liner' %}" class="mt-auto text-orange-600 font-bold text-xs flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
+                        <span>مطالعه مقاله</span>
                         <span class="material-symbols-outlined text-sm">arrow_left</span>
                     </a>
                 </div>
             </div>
 
-            <!-- مقاله ۳: ویل موتور دامپتراک بلاز -->
-            <div class="bg-white/95 backdrop-blur-md rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-white/20">
-                <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-slate-900">
+            <!-- مقاله ۳ -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-slate-200">
+                <div class="relative aspect-video overflow-hidden bg-slate-900">
                     <img src="{% static 'images/article-3.jpg' %}" 
-                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80';"
-                         alt="ویل موتور دامپتراک بلاز و ذغال ص ۱۹۵" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=600&q=80';"
+                         alt="ویل موتور دامپتراک بلاز" 
                          class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
-                    <div class="absolute top-4 right-4 bg-slate-950/80 backdrop-blur-md text-orange-400 text-[11px] font-bold px-3 py-1 rounded-lg border border-white/10">
-                        ناوگان معدنی و بلاز
-                    </div>
                 </div>
-                <div class="p-7 flex-1 flex flex-col">
-                    <h3 class="text-base sm:text-lg font-black text-slate-900 mb-3 text-right leading-relaxed group-hover:text-brand-orange transition">
+                <div class="p-6 flex-1 flex flex-col text-right">
+                    <h3 class="text-base font-black text-slate-900 mb-3 leading-relaxed group-hover:text-orange-600 transition">
                         بررسی فنی، علل خرابی و کموتاسیون ویل موتورهای دامپتراک بلاز (BelAZ)
                     </h3>
-                    <p class="text-xs sm:text-sm text-slate-500 leading-relaxed text-right mb-6">
-                        بررسی خطای Flashover، تنظیم فشار فنر جاذغالی و معرفی ویژگی‌های ذغال گرافیتی بومی‌سازی شده ص ۱۹۵ در دامپتراک‌های سنگین.
+                    <p class="text-xs text-slate-500 leading-relaxed mb-6">
+                        بررسی مقاومت خستگی، نسبت استحکام به وزن و نحوه تنظیم فشار فنر جاذغالی در ویل موتور دامپتراک‌های سنگین معدنی.
                     </p>
-                    <a href="{% url 'article_belaz_wheel_motor' %}" class="mt-auto text-brand-orange font-bold text-xs sm:text-sm flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
-                        <span>مطالعه مقاله کامل</span>
+                    <a href="{% url 'article_belaz_wheel_motor' %}" class="mt-auto text-orange-600 font-bold text-xs flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
+                        <span>مطالعه مقاله</span>
                         <span class="material-symbols-outlined text-sm">arrow_left</span>
                     </a>
                 </div>
@@ -702,7 +658,7 @@
     </div>
 </section>
 
-<!-- سکشن ۷: فرم جامع استعلام فنی -->
+<!-- سکشن ۸: فرم جامع استعلام فنی -->
 <section id="inquiry-box" class="py-20 relative z-10 bg-white border-t border-slate-200/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
@@ -716,23 +672,23 @@
             <form class="space-y-6" onsubmit="event.preventDefault(); alert('درخواست استعلام فنی شما با موفقیت ثبت شد.');">
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">نام متقاضی / شرکت</label>
-                        <input type="text" required placeholder="مثال: شرکت معدنی و صنعتی ..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange shadow-sm transition">
+                        <label class="block text-xs font-bold text-slate-700 mb-2 text-right">نام متقاضی / شرکت</label>
+                        <input type="text" required placeholder="مثال: شرکت معدنی و صنعتی ..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 shadow-sm transition">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">شماره تماس مستقیم کارشناس</label>
-                        <input type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 text-left focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange shadow-sm transition" dir="ltr">
+                        <label class="block text-xs font-bold text-slate-700 mb-2 text-right">شماره تماس مستقیم کارشناس</label>
+                        <input type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 text-left focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 shadow-sm transition" dir="ltr">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">ایمیل سازمانی (اختیاری)</label>
-                        <input type="email" placeholder="info@company.com" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 text-left focus:outline-none focus:border-brand-orange focus:ring-1 focus:ring-brand-orange shadow-sm transition" dir="ltr">
+                        <label class="block text-xs font-bold text-slate-700 mb-2 text-right">ایمیل سازمانی (اختیاری)</label>
+                        <input type="email" placeholder="info@company.com" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 text-left focus:outline-none focus:border-orange-500 focus:ring-1 focus:ring-orange-500 shadow-sm transition" dir="ltr">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">دسته‌بندی قطعه درخواستی</label>
-                        <select class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-brand-orange shadow-sm transition">
+                        <label class="block text-xs font-bold text-slate-700 mb-2 text-right">دسته‌بندی قطعه درخواستی</label>
+                        <select class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-orange-500 shadow-sm transition">
                             <option>ذغال الکتریکی مس و الکتروگرافیت</option>
                             <option>لاینر و سرامیک ضد سایش شوت</option>
                             <option>پره و قطعات کامپوزیتی توربین بادی</option>
@@ -740,22 +696,22 @@
                         </select>
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">کد فنی یا گرید معادل</label>
-                        <input type="text" placeholder="مثال: RC73، EQ_64K یا ص ۱۹۵" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-orange shadow-sm transition">
+                        <label class="block text-xs font-bold text-slate-700 mb-2 text-right">کد فنی یا گرید معادل</label>
+                        <input type="text" placeholder="مثال: RC73، EQ_64K یا ص ۱۹۵" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-sm transition">
                     </div>
                     <div>
-                        <label class="block text-xs font-bold text-slate-700 mb-2">پیوست نقشه فنی یا عکس نمونه</label>
-                        <input type="file" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-900 file:text-white hover:file:bg-brand-orange cursor-pointer shadow-sm transition">
+                        <label class="block text-xs font-bold text-slate-700 mb-2 text-right">پیوست نقشه فنی یا عکس نمونه</label>
+                        <input type="file" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-900 file:text-white hover:file:bg-orange-500 cursor-pointer shadow-sm transition">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-700 mb-2">توضیحات تکمیلی، شرایط کاری و تعداد مورد نیاز</label>
-                    <textarea rows="4" placeholder="ابعاد دقیق، جریان نامی موتور، محیط کارکرد، میزان سایش یا سایر الزامات ساخت را بنویسید..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-brand-orange shadow-sm transition"></textarea>
+                    <label class="block text-xs font-bold text-slate-700 mb-2 text-right">توضیحات تکمیلی، شرایط کاری و تعداد مورد نیاز</label>
+                    <textarea rows="4" placeholder="ابعاد دقیق، جریان نامی موتور، محیط کارکرد، میزان سایش یا سایر الزامات ساخت را بنویسید..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-sm transition"></textarea>
                 </div>
 
                 <div class="flex justify-center pt-2">
-                    <button type="submit" class="w-full sm:w-1/2 bg-brand-orange hover:bg-orange-600 text-white font-black py-4 rounded-xl text-sm shadow-xl shadow-orange-500/20 transition duration-300 flex items-center justify-center gap-2">
+                    <button type="submit" class="w-full sm:w-1/2 bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-xl text-sm shadow-xl shadow-orange-500/20 transition duration-300 flex items-center justify-center gap-2">
                         <span>ارسال استعلام و درخواست بررسی فنی</span>
                         <span class="material-symbols-outlined text-base">send</span>
                     </button>
@@ -763,6 +719,269 @@
             </form>
         </div>
 
+    </div>
+</section>
+
+<!-- سکشن ۹: نتایج آزمون‌های متالورژی و گزارش‌های آزمایشگاهی (بازیابی کامل با ۶ کارت و پاپ‌آپ) -->
+<section class="py-24 relative overflow-hidden bg-slate-100 border-t border-slate-200/80"
+         x-data="{
+             current: 0,
+             total: 2,
+             autoplay: null,
+             previewModal: false,
+             activeImg: '',
+             activeTitle: '',
+             start() {
+                 this.autoplay = setInterval(() => {
+                     this.current = (this.current + 1) % this.total;
+                 }, 4500);
+             },
+             stop() {
+                 clearInterval(this.autoplay);
+             },
+             openPreview(img, title) {
+                 this.activeImg = img;
+                 this.activeTitle = title;
+                 this.previewModal = true;
+             }
+         }"
+         x-init="start()"
+         @mouseenter="stop()"
+         @mouseleave="start()"
+         @keydown.escape.window="previewModal = false">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- هدر و دکمه‌های کنترل اسلایدر -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div class="space-y-3 text-right">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black bg-orange-50 text-orange-700 border border-orange-200 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                    دارای تاییدیه معتبر از مرکز پژوهش متالورژی رازی
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    نتایج آزمون‌های آزمایشگاهی و <span class="text-orange-500">گزارش‌های متالورژی</span>
+                </h2>
+                <p class="text-slate-600 text-xs sm:text-sm max-w-2xl font-normal leading-relaxed">
+                    مستندات رسمی و معتبر خواص فیزیکی و شیمیایی، تصویربرداری ریزساختار SEM، سنجش مقاومت ویژه الکتریکی و آزمون‌های مکانیکی طبق استانداردهای بین‌المللی.
+                </p>
+            </div>
+
+            <!-- دکمه‌های ناوبری اسلایدر -->
+            <div class="flex items-center gap-3">
+                <button @click="current = (current === 0) ? total - 1 : current - 1" 
+                        class="w-12 h-12 rounded-2xl bg-white hover:bg-orange-500 text-slate-700 hover:text-white flex items-center justify-center border border-slate-200 shadow-sm transition duration-300 group"
+                        aria-label="اسلاید قبلی">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition">arrow_forward</span>
+                </button>
+                <button @click="current = (current + 1) % total" 
+                        class="w-12 h-12 rounded-2xl bg-white hover:bg-orange-500 text-slate-700 hover:text-white flex items-center justify-center border border-slate-200 shadow-sm transition duration-300 group"
+                        aria-label="اسلاید بعدی">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition">arrow_back</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- ترک اسلایدر (RTL: translateX(100% * current)) -->
+        <div class="overflow-hidden">
+            <div class="flex transition-transform duration-700 ease-out" 
+                 :style="'transform: translateX(' + (current * 100) + '%);'">
+
+                <!-- اسلاید ۱ -->
+                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6 px-1">
+
+                    <!-- کارت ۱: مقاومت ویژه الکتریکی -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group text-right">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-resistivity.png' %}', 'برگه نتایج آزمون مقاومت ویژه الکتریکی')">
+                                <img src="{% static 'test-resistivity.png' %}" 
+                                     alt="آزمون مقاومت ویژه الکتریکی" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>مشاهده برگه آزمون</span>
+                                </div>
+                                <span class="absolute top-3 right-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    آزمون الکتریکی
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">bolt</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">مقاومت ویژه الکتریکی</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed font-normal">
+                                اندازه‌گیری دقیق مقاومت ویژه الکتریکی جهت تضمین حداکثر راندمان انتقال جریان و حداقل افت ولتاژ در کموتاسیون.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- کارت ۲: تست استحکام خمشی -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group text-right">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-bending.png' %}', 'برگه نتایج آزمون خمش ۳ نقطه‌ای')">
+                                <img src="{% static 'test-bending.png' %}" 
+                                     alt="آزمون استحکام خمشی" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>مشاهده برگه آزمون</span>
+                                </div>
+                                <span class="absolute top-3 right-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    استحکام مکانیکی
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">precision_manufacturing</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">استحکام خمشی (تست خمش)</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed font-normal">
+                                ارزیابی استحکام خمشی و مدول الاستیک قطعات تحت تنش‌های مکانیکی سنگین و ارتعاشات مداوم الکتروموتور.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- کارت ۳: تصویربرداری میکروسکوپی SEM -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group text-right">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-sem.png' %}', 'تصویر میکروسکوپ الکترونی روبشی SEM')">
+                                <img src="{% static 'test-sem.png' %}" 
+                                     alt="آنالیز میکروسکوپی SEM" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>مشاهده تصویر SEM</span>
+                                </div>
+                                <span class="absolute top-3 right-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    آنالیز ریزساختار
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">biotech</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">میکروسکوپ الکترونی SEM</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed font-normal">
+                                تصویربرداری روبشی با بزرگنمایی بالا جهت ارزیابی توزیع یکنواخت فاز گرافیت، پیوند ذرات مس و میزان تخلخل.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- اسلاید ۲ -->
+                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6 px-1">
+
+                    <!-- کارت ۴: سختی‌سنجی برینل -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group text-right">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-brinell.jpg' %}', 'برگه آزمون سختی‌سنجی برینل HBW')">
+                                <img src="{% static 'test-brinell.jpg' %}" 
+                                     alt="آزمون سختی‌سنجی برینل" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>مشاهده برگه آزمون</span>
+                                </div>
+                                <span class="absolute top-3 right-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    سختی‌سنجی
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">diamond</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">سختی‌سنجی برینل (HBW)</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed font-normal">
+                                سنجش سختی سطح و تراکم ذرات بر اساس استاندارد HBW جهت اطمینان از عدم خط‌اندازی روی کموتاتور مس.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- کارت ۵: آنالیز متالورژیکی و کوانتومتری XRF -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group text-right">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-analysis.jpeg' %}', 'آنالیز متالورژی و درصد خلوص عناصر')">
+                                <img src="{% static 'test-analysis.jpeg' %}" 
+                                     alt="آنالیز متالورژی" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>مشاهده برگه آزمون</span>
+                                </div>
+                                <span class="absolute top-3 right-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    کوانتومتری XRF
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">analytics</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">آنالیز متالورژی و خلوص عناصر</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed font-normal">
+                                آنالیز دقیق درصد عناصر مس و کربن و کنترل ناخالصی‌ها در معتبرترین مراکز متالورژی کشور (مرکز پژوهش متالورژی رازی).
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- کارت ۶: درخواست اسناد و شناسنامه فنی -->
+                    <div class="rounded-3xl p-6 bg-slate-900 text-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between items-center text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 text-orange-400 flex items-center justify-center mt-4">
+                            <span class="material-symbols-outlined text-3xl">verified</span>
+                        </div>
+                        <div class="my-4">
+                            <h3 class="text-white font-extrabold text-base mb-2">درخواست پرونده فنی کامل</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed">
+                                جهت دریافت شناسنامه مهندسی، گواهی‌های بازرسی کنترل کیفیت و دیتاشیت‌های رسمی با واحد مهندسی تماس بگیرید.
+                            </p>
+                        </div>
+                        <a href="#inquiry-box" class="w-full py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-black text-xs transition duration-300 shadow-lg shadow-orange-500/20">
+                            درخواست مدارک آزمون
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- نشانگرهای دات اسلایدر -->
+        <div class="flex items-center justify-center gap-2 mt-10">
+            <template x-for="i in total" :key="i">
+                <button @click="current = i - 1" 
+                        class="h-2 rounded-full transition-all duration-300"
+                        :class="current === (i - 1) ? 'w-9 bg-orange-500' : 'w-2.5 bg-slate-300 hover:bg-slate-400'"
+                        aria-label="انتخاب اسلاید">
+                </button>
+            </template>
+        </div>
+
+    </div>
+
+    <!-- مودال پاپ‌آپ پیش‌نمایش تصویر آزمون با زوم -->
+    <div x-show="previewModal" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md"
+         style="display: none;">
+
+        <div class="relative max-w-4xl w-full bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl overflow-hidden" 
+             @click.outside="previewModal = false">
+            <div class="flex justify-between items-center mb-3 px-2">
+                <span class="text-slate-900 font-extrabold text-sm" x-text="activeTitle"></span>
+                <button @click="previewModal = false" class="text-slate-500 hover:text-white p-1 rounded-xl bg-slate-100 hover:bg-slate-900 transition">
+                    <span class="material-symbols-outlined text-xl">close</span>
+                </button>
+            </div>
+            <div class="max-h-[80vh] overflow-auto rounded-2xl bg-slate-900 flex items-center justify-center p-2">
+                <img :src="activeImg" alt="برگه آزمون متالورژی" class="max-w-full h-auto object-contain rounded-xl">
+            </div>
+        </div>
     </div>
 </section>
 
