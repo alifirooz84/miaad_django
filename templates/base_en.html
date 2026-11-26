@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Miaad Sanat Sirjan Gohar Co. | Advanced Metallurgy & Engineering Components{% endblock %}</title>
+    
+    <!-- فونت استاندارد انگلیسی Inter و آیکون‌های گوگل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    
+    <!-- Tailwind CSS با پالت روشن سازمانی نارنجی و خاکستری -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    
+    <!-- کتابخانه Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <style>
+        body { 
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #F8FAFC;
+        }
+
+        .bg-mesh-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.04) 0%, transparent 45%);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-orange selection:text-white relative overflow-x-hidden" 
+      x-data="{ 
+          mobileMenu: false, 
+          productsDropdown: false,
+          langDropdown: false 
+      }">
+
+    {% load static %}
+    <div class="bg-mesh-glow"></div>
+
+    <!-- ==================== هدر روشن، تمام‌عرض و بدون حاشیه‌های اضافی ==================== -->
+    <header class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- لوگو و عنوان شرکت -->
+            <a href="/en/" class="flex items-center gap-3.5 group/logo">
+                <div class="w-11 h-11 rounded-xl bg-orange-50 border border-orange-200/80 p-1.5 flex items-center justify-center shadow-sm group-hover/logo:scale-105 transition duration-300">
+                    <img src="{% static 'images/logo.png' %}" alt="Miaad Sanat Logo" class="w-full h-full object-contain">
+                </div>
+                <div>
+                    <span class="font-black text-sm sm:text-base text-slate-900 tracking-tight block group-hover/logo:text-brand-orange transition duration-200">
+                        Miaad Sanat Sirjan Gohar
+                    </span>
+                    <div class="flex items-center gap-1.5 mt-0.5">
+                        <span class="text-[10px] text-slate-500 font-semibold uppercase tracking-wider">Industrial Localization</span>
+                        <span class="text-slate-300 text-[10px]">•</span>
+                        <span class="text-[9px] text-orange-700 font-bold bg-orange-100/70 px-1.5 py-0.2 rounded border border-orange-200">Knowledge-Based</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- منوی دسکتاپ -->
+            <nav class="hidden lg:flex items-center gap-8 text-xs font-bold text-slate-600">
+                <a href="#hero" class="text-brand-orange transition">Home</a>
+                <a href="#about" class="hover:text-brand-orange transition">About Us</a>
+
+                <!-- دراپ‌داون محصولات کاتالوگ -->
+                <div class="relative" 
+                     @mouseenter="productsDropdown = true" 
+                     @mouseleave="productsDropdown = false">
+                    <a href="#products" class="flex items-center gap-1 hover:text-brand-orange transition py-2 cursor-pointer">
+                        <span>Catalog</span>
+                        <span class="material-symbols-outlined text-sm transition-transform duration-300" :class="productsDropdown ? 'rotate-180 text-brand-orange' : ''">expand_more</span>
+                    </a>
+
+                    <!-- باکس دراپ‌داون روشن -->
+                    <div x-show="productsDropdown" 
+                         x-transition:enter="transition ease-out duration-150"
+                         x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave="transition ease-in duration-100"
+                         x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                         class="absolute left-0 top-full pt-2 w-72 z-50 text-left"
+                         style="display: none;">
+                        
+                        <div class="rounded-2xl p-2 bg-white border border-slate-200 shadow-xl space-y-1">
+                            <a href="#products" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">bolt</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">Carbon Brush S-195</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">EQ_64K Equiv. • High-Voltage DC Motors</div>
+                                </div>
+                            </a>
+
+                            <a href="#products" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">electrical_services</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">Carbon Brush H-128</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">RC73 Equiv. • High-Amp Current Transfer</div>
+                                </div>
+                            </a>
+
+                            <a href="#products" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">shield</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">Carbon Brush H-118</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">RC53 Equiv. • Shaft Grounding & Bearing Protection</div>
+                                </div>
+                            </a>
+
+                            <a href="#products" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">precision_manufacturing</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">Wear-Resistant Ceramics</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">Alumina 95% Chute Liners & Tiles</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="#team" class="hover:text-brand-orange transition">Specialists</a>
+                <a href="#partners" class="hover:text-brand-orange transition">Partners</a>
+                <a href="#inquiry-box" class="hover:text-brand-orange transition">Inquiry</a>
+            </nav>
+
+            <!-- بخش سوئیچر زبان و دکمه سفارش -->
+            <div class="hidden sm:flex items-center gap-3.5">
+                
+                <!-- سوئیچر زبان -->
+                <div class="relative" @click.outside="langDropdown = false">
+                    <button @click="langDropdown = !langDropdown" 
+                            type="button"
+                            class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 border border-slate-200 text-slate-700 text-xs font-bold transition shadow-sm">
+                        <span class="material-symbols-outlined text-base text-brand-orange">language</span>
+                        <span class="font-mono">EN</span>
+                        <span class="material-symbols-outlined text-xs text-slate-500 transition-transform" :class="langDropdown ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+
+                    <div x-show="langDropdown" 
+                         x-transition
+                         class="absolute right-0 mt-2 w-32 rounded-xl bg-white border border-slate-200 shadow-xl p-1 z-50 text-xs"
+                         style="display: none;">
+                        
+                        <a href="/en/" 
+                           class="flex items-center justify-between px-3 py-2 rounded-lg bg-orange-50 text-brand-orange font-black">
+                            <span>English</span>
+                            <span class="font-mono text-[10px] text-orange-600">EN</span>
+                        </a>
+                        
+                        <a href="/" 
+                           class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-brand-orange transition">
+                            <span>فارسی</span>
+                            <span class="font-mono text-[10px] text-slate-400">FA</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- دکمه نارنجی استعلام -->
+                <a href="#inquiry-box" class="px-5 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-black shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/35 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-1.5 group/btn">
+                    <span>Inquiry & Drawings</span>
+                    <span class="material-symbols-outlined text-sm group-hover/btn:translate-x-0.5 transition duration-300">arrow_forward</span>
+                </a>
+            </div>
+
+            <!-- دکمه منوی موبایل -->
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-slate-700 p-2 rounded-xl hover:bg-slate-100 focus:outline-none">
+                <span class="material-symbols-outlined text-2xl" x-text="mobileMenu ? 'close' : 'menu'"></span>
+            </button>
+
+        </div>
+
+        <!-- منوی بازشونده موبایل -->
+        <div x-show="mobileMenu" 
+             x-transition 
+             class="lg:hidden bg-white border-b border-slate-200 px-6 py-5 shadow-xl space-y-3.5 text-left"
+             style="display: none;">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <span class="text-xs font-bold text-slate-500">Language / زبان:</span>
+                <div class="inline-flex rounded-lg bg-slate-100 p-1 border border-slate-200">
+                    <a href="/en/" class="px-3 py-1 rounded-md text-xs font-bold bg-brand-orange text-white">English</a>
+                    <a href="/" class="px-3 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900">فارسی</a>
+                </div>
+            </div>
+
+            <a href="#hero" @click="mobileMenu = false" class="block text-xs font-bold text-slate-900">Home</a>
+            <a href="#about" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">About Us</a>
+            
+            <div class="py-2 border-y border-slate-100 space-y-2">
+                <span class="block text-[11px] font-bold text-brand-orange">Catalog Products:</span>
+                <a href="#products" @click="mobileMenu = false" class="block text-xs text-slate-500 pl-3 hover:text-brand-orange">• Carbon Brush S-195</a>
+                <a href="#products" @click="mobileMenu = false" class="block text-xs text-slate-500 pl-3 hover:text-brand-orange">• Carbon Brush H-128</a>
+                <a href="#products" @click="mobileMenu = false" class="block text-xs text-slate-500 pl-3 hover:text-brand-orange">• Carbon Brush H-118</a>
+                <a href="#products" @click="mobileMenu = false" class="block text-xs text-slate-500 pl-3 hover:text-brand-orange">• Wear-Resistant Ceramics</a>
+            </div>
+
+            <a href="#team" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">Specialists</a>
+            <a href="#partners" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">Partners</a>
+            <a href="#inquiry-box" @click="mobileMenu = false" class="block text-xs font-bold text-brand-orange">Submit Inquiry & Drawings</a>
+        </div>
+    </header>
+
+    <!-- بدنه صفحات -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ==================== فوتر روشن، صنعتی و مدرن (Light Theme) ==================== -->
+    <footer class="relative bg-slate-100 text-slate-600 text-xs pt-16 pb-10 border-t border-slate-200 overflow-hidden z-10">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- بنر فوقانی استعلام مهندسی معکوس (تم روشن با فریم نارنجی) -->
+            <div class="mb-16 rounded-3xl bg-white border border-slate-200 shadow-sm p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div class="space-y-2 text-center md:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-orange-50 text-orange-700 border border-orange-200">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+                        <span>Metallurgical R&D and Reverse Engineering</span>
+                    </div>
+                    
+                    <h3 class="text-slate-900 text-xl sm:text-2xl font-black tracking-tight">
+                        Need <span class="text-brand-orange">Reverse Engineering</span> or Custom Fabrication?
+                    </h3>
+                    
+                    <p class="text-slate-500 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                        Submit your technical drawings and operating specifications for laboratory characterization, material simulation, and cost evaluation.
+                    </p>
+                </div>
+
+                <div class="w-full md:w-auto flex-shrink-0">
+                    <a href="#inquiry-box" 
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-sm shadow-md shadow-orange-500/20 hover:scale-105 active:scale-95 transition-all duration-300">
+                        <span>Submit Technical Request</span>
+                        <span class="material-symbols-outlined text-base">arrow_forward</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ستون‌های فوتر -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-200">
+                
+                <!-- ستون ۱: هویت شرکت -->
+                <div class="lg:col-span-5 space-y-4 text-left">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-white p-1 border border-slate-200 flex items-center justify-center shadow-sm">
+                            <img src="{% static 'images/logo.png' %}" alt="Miaad Sanat Logo" class="w-full h-full object-contain">
+                        </div>
+                        <div>
+                            <span class="text-slate-900 font-black text-base tracking-tight block">Miaad Sanat Sirjan Gohar Co.</span>
+                            <span class="text-[11px] text-brand-orange font-bold">Built by Knowledge, Driven by Diligence</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-500 text-xs leading-relaxed">
+                        Pioneering leader in powder metallurgy, domestic production, and reverse engineering of advanced industrial components—including DC motor electrical carbon brushes, wear-resistant ceramic liners, and composite wind turbine parts across mining and steel complexes.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] text-slate-600 font-medium shadow-sm">Composite Localization</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] text-slate-600 font-medium shadow-sm">SEM Microstructural Analysis</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] text-slate-600 font-medium shadow-sm">IEC Standard Compliance</span>
+                    </div>
+                </div>
+
+                <!-- ستون ۲: لینک‌های دسترسی -->
+                <div class="lg:col-span-3 text-left">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-1.5 h-4 bg-brand-orange rounded-full"></div>
+                        <h4 class="text-slate-900 font-bold text-sm">Quick Links</h4>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-slate-500">
+                        <li><a href="#about" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_right</span> Company Profile</a></li>
+                        <li><a href="#products" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_right</span> Carbon Brushes & Components</a></li>
+                        <li><a href="#team" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_right</span> Engineering Specialists</a></li>
+                        <li><a href="#partners" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_right</span> Mining Partners</a></li>
+                        <li><a href="#inquiry-box" class="text-brand-orange font-bold hover:underline flex items-center gap-1"><span class="material-symbols-outlined text-xs">assignment</span> Technical Inquiry Form</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون ۳: اطلاعات تماس -->
+                <div class="lg:col-span-4 space-y-3 text-left">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-1.5 h-4 bg-brand-orange rounded-full"></div>
+                        <h4 class="text-slate-900 font-bold text-sm">Contact Information</h4>
+                    </div>
+                    
+                    <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-2.5">
+                        <span class="material-symbols-outlined text-brand-orange text-base mt-0.5">location_on</span>
+                        <span class="text-slate-600 text-xs">San'at 1 St., Talash Sq., Industrial Zone No. 1, Sirjan, Iran</span>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-600 text-base">call</span>
+                            <span class="text-slate-500 text-xs">Phone / WhatsApp:</span>
+                        </div>
+                        <a href="tel:09981320507" class="text-slate-900 font-mono font-bold hover:text-brand-orange transition">+98 998 132 0507</a>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-amber-500 text-base">mail</span>
+                            <span class="text-slate-500 text-xs">Email:</span>
+                        </div>
+                        <a href="mailto:miaadsanatsirjan@gmail.com" class="text-slate-700 font-mono text-xs hover:text-brand-orange transition">miaadsanatsirjan@gmail.com</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- نوار کپی‌رایت و سوئیچر زبان فوتر -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px]">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <p>© 2026 Miaad Sanat Sirjan Gohar Co. All rights reserved.</p>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1.5 text-xs">
+                        <span>Language:</span>
+                        <a href="/en/" class="text-brand-orange font-bold hover:underline">English</a>
+                        <span>|</span>
+                        <a href="/" class="text-slate-500 hover:text-brand-orange transition">فارسی</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

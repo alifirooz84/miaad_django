@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}عایق‌های رزیستور ترمز دامپتراک | میعاد صنعت سیرجان گهر{% endblock %}
+
+{% block content %}
+<section class="relative pt-32 pb-16 bg-slate-950 overflow-hidden flex items-center justify-center min-h-[40vh]">
+    <div class="absolute inset-0 bg-[url('{% static 'images/industrial-bg.jpg' %}')] bg-cover bg-center opacity-70 brightness-90 contrast-110"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20"></div>
+    
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold shadow-sm backdrop-blur-md">
+            <span class="material-symbols-outlined text-sm">local_shipping</span>
+            GRID RESISTOR | عایق نسوز
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            عایق‌های رزیستور ترمز <span class="text-transparent bg-clip-text bg-gradient-to-l from-amber-400 to-orange-300">دامپتراک و لکوموتیو</span>
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base font-light max-w-2xl mx-auto">
+            تحمل شوک‌های حرارتی بسیار شدید در سیستم‌های ترمز دینامیکی ماشین‌آلات معدنی سنگین
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-slate-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <div class="lg:col-span-5 sticky top-24">
+                <div class="w-full rounded-[2rem] overflow-hidden relative shadow-2xl border-4 border-white bg-white group">
+                    <img src="{% static 'products/grid-resistor.png' %}" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80';"
+                         alt="رزیستور ترمز دامپتراک" 
+                         class="w-full h-auto object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    
+                    <div class="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 font-black text-xs shadow-sm flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span>
+                        مقاوم به شوک حرارتی
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 space-y-8">
+                <div class="glass-panel rounded-3xl p-8 shadow-lg border border-slate-200/60 bg-white/60 backdrop-blur-xl">
+                    <h2 class="text-2xl font-black text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-amber-600">description</span>
+                        معرفی فنی محصول
+                    </h2>
+                    <p class="text-sm text-slate-600 leading-relaxed text-justify font-medium">
+                        در سیستم‌های ترمز دینامیک ماشین‌آلات غول‌پیکر معدنی، انرژی جنبشی به حرارت تبدیل می‌شود. عایق‌های سرامیکی و میکایی تولید شده در میعاد صنعت، با تحمل شوک‌های حرارتی ناگهانی تا ۸۵۰ درجه سانتی‌گراد و ولتاژهای بالا، تضمین‌کننده عملکرد ایمن گرید رزیستورهای دامپتراک‌های کوماتسو و کاترپیلار در معادن عمیق هستند.
+                    </p>
+                </div>
+
+                <div class="glass-panel rounded-3xl p-8 shadow-lg border border-slate-200/60 bg-white/60 backdrop-blur-xl">
+                    <h2 class="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-amber-600">analytics</span>
+                        مشخصات فیزیکی و دی‌الکتریک
+                    </h2>
+                    <div class="overflow-hidden rounded-2xl border border-slate-200">
+                        <table class="w-full text-sm text-right">
+                            <thead class="bg-slate-100/80 text-slate-700 font-black text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4">پارامتر</th>
+                                    <th scope="col" class="px-6 py-4">مقدار اندازه‌گیری شده</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200/80 bg-white">
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-6 py-4 font-bold text-slate-900">حداکثر تحمل حرارتی</td>
+                                    <td class="px-6 py-4 text-amber-600 font-mono font-bold">تا 850°C (پیوسته و شوک)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition bg-slate-50/50">
+                                    <td class="px-6 py-4 font-bold text-slate-900">استحکام دی‌الکتریک</td>
+                                    <td class="px-6 py-4 text-amber-600 font-mono font-bold">&gt; 15 kV/mm</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-6 py-4 font-bold text-slate-900">مقاومت مکانیکی</td>
+                                    <td class="px-6 py-4 text-amber-600 font-bold">کاملاً مقاوم در برابر ضربه و ارتعاش معدنی</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition bg-slate-50/50">
+                                    <td class="px-6 py-4 font-bold text-slate-900">سازگاری تجهیزات</td>
+                                    <td class="px-6 py-4 text-amber-600 font-bold">انواع دامپتراک‌های ۱۳۰ تا ۲۴۰ تن برقی</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="{% url 'home' %}#inquiry-box" class="flex-1 bg-amber-600 hover:bg-amber-700 text-white font-black py-4 rounded-xl text-sm shadow-xl shadow-amber-900/20 transition duration-300 flex items-center justify-center gap-2 group">
+                        <span class="material-symbols-outlined text-base group-hover:scale-110 transition">engineering</span>
+                        <span>ثبت سفارش و ارسال نقشه</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}راهنمای جامع انتخاب گرید ذغال صنعتی موتورهای DC | میعاد صنعت سیرجان گهر{% endblock %}
+
+{% block meta_description %}راهنمای تخصصی مهندسی متالورژی پودر برای انتخاب بهترین گرید ذغال صنعتی موتورهای DC، تحلیل تشکیل فیلم کموتاتور، سایش و راهکارهای جلوگیری از جرقه زدن ذغال‌ها.{% endblock %}
+
+{% block meta_keywords %}ذغال موتور DC, انتخاب گرید ذغال صنعتی, ذغال الکتروگرافیت, کموتاتور موتور DC, جرقه ذغال موتور, میعاد صنعت سیرجان گهر, متالورژی پودر ذغال{% endblock %}
+
+{% block canonical %}https://miaadsanatsirjan.ir/articles/dc-motor-carbon/{% endblock %}
+
+{% block og_title %}راهنمای جامع انتخاب گرید ذغال صنعتی برای موتورهای جریان مستقیم (DC){% endblock %}
+{% block og_description %}بررسی علمی متالورژی ذغال‌های الکتروگرافیتی، شرایط تشکیل لایه محافظ پاتینا و روش‌های رفع عیب جرقه کموتاتور.{% endblock %}
+{% block og_image %}https://miaadsanatsirjan.ir/static/images/article-1.jpg{% endblock %}
+
+{% block schema_extra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "راهنمای جامع انتخاب گرید ذغال صنعتی برای موتورهای DC",
+  "description": "راهنمای تخصصی متالورژی و تحلیل عملکرد ذغال‌های صنعتی در موتورهای جریان مستقیم و نحوه جلوگیری از جرقه‌زنی و خوردگی کموتاتور.",
+  "image": "https://miaadsanatsirjan.ir/static/images/article-1.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "واحد تحقیق و توسعه (R&D) میعاد صنعت سیرجان گهر"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "شرکت دانش‌بنیان میعاد صنعت سیرجان گهر",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://miaadsanatsirjan.ir/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-03-10",
+  "dateModified": "2025-01-15",
+  "mainEntityOfPage": "https://miaadsanatsirjan.ir/articles/dc-motor-carbon/"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="py-16 bg-slate-50 min-h-screen">
+    
+    <!-- هدر و تصویر شاخص مقاله -->
+    <header class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        
+        <!-- بردکرامب (Breadcrumb) جهت سئو -->
+        <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-brand-orange transition">صفحه اصلی</a>
+            <span class="text-slate-300">/</span>
+            <a href="/#articles" class="hover:text-brand-orange transition">دانشنامه تخصصی</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-slate-900">راهنمای ذغال موتورهای DC</span>
+        </nav>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 text-orange-700 text-xs font-black border border-orange-200 mb-4">
+            <span class="material-symbols-outlined text-sm">electric_bolt</span>
+            <span>الکتروموتورهای سنگین و کموتاسیون</span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tight mb-6 text-right">
+            راهنمای جامع انتخاب بهترین گرید ذغال صنعتی برای موتورهای DC
+        </h1>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-slate-200 text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-slate-800">نویسنده: دپارتمان متالورژی و R&D میعاد صنعت</span>
+                <span>•</span>
+                <span>زمان مطالعه: ۸ دقیقه</span>
+            </div>
+            <span class="font-mono text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200 font-bold">استاندارد IEC 60136</span>
+        </div>
+
+        <!-- تصویر اصلی مقاله با فریم جذاب -->
+        <div class="w-full aspect-video rounded-3xl overflow-hidden mt-8 shadow-xl border border-slate-200 bg-slate-900 relative">
+            <img src="{% static 'images/article-1.jpg' %}" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80';"
+                 alt="بررسی ساختار ذغال موتورهای DC و کموتاتور" 
+                 class="w-full h-full object-cover">
+        </div>
+    </header>
+
+    <!-- محتوای متنی مقاله -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-right leading-relaxed text-slate-700">
+
+        <!-- ================= بخش ۱: مقدمه (قابل ویرایش) ================= -->
+        <section class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-r-4 border-brand-orange pr-3">
+                مقدمه: اهمیت حیاتی ذغال‌های الکتریکی در راندمان موتورهای DC
+            </h2>
+            <p class="text-sm sm:text-base leading-8 text-slate-600">
+                موتورهای جریان مستقیم (DC) به دلیل گشتاور راه‌اندازی بالا و قابلیت کنترل دقیق سرعت، همچنان قلب تپنده صنایع فولاد، معادن سنگ آهن و خطوط نورد سنگین هستند. با این وجود، پاشنه آشیل این موتورها سیستم انتقال جریان بین استاتور و روتور، یعنی <strong>مجموعه کموتاتور و ذغال‌های الکتریکی (Carbon Brushes)</strong> است. انتخاب نادرست گرید متریال ذغال می‌تواند منجر به جرقه شدید (Sparking)، شیارافتادگی لامل‌ها (Grooving)، فرسایش غیرعادی و در نهایت توقف خط تولید شود.
+            </p>
+        </section>
+
+        <!-- ================= بخش ۲: دسته‌بندی گریدهای متالورژی (قابل ویرایش) ================= -->
+        <section class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-r-4 border-brand-orange pr-3">
+                دسته‌بندی اصلی گریدهای ذغال صنعتی از منظر متالورژی پودر
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <!-- گرید الکتروگرافیت -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex items-center gap-2 text-brand-orange font-black text-base">
+                        <span class="material-symbols-outlined">layers</span>
+                        <h3>۱. الکتروگرافیت (Electrographite)</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        از پرکاربردترین متریال‌ها برای موتورهای DC سرعت بالا با بار متغیر. این گریدها تحت دمای بالای ۲۵۰۰ درجه سانتی‌گراد گرافیتایز شده‌اند و دارای خاصیت خود-روانکاری فوق‌العاده و مقاومت بالا در برابر جرقه هستند (نظیر گریدهای معادل EQ_64K و EG236).
+                    </p>
+                </div>
+
+                <!-- گرید متال‌گرافیت / مس گرافیتی -->
+                <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div class="flex items-center gap-2 text-brand-orange font-black text-base">
+                        <span class="material-symbols-outlined">blur_circular</span>
+                        <h3>۲. متال‌گرافیت یا مس-گرافیت (Metal Graphite)</h3>
+                    </div>
+                    <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                        ترکیبی سینتر شده از پودر مس الکترولیتی با خلوص ۹۹.۹٪ و گرافیت طبیعی. به دلیل افت ولتاژ بسیار پایین و ظرفیت جریان‌دهی تا ۳۰ آمپر بر سانتی‌متر مربع، برای ژنراتورها، اسلیپ‌رینگ‌ها و ولتاژهای پایین و جریان‌های بسیار سنگین انتخابی بی‌رقیب است (نظیر معادل RC73 و RC53).
+                    </p>
+                </div>
+            </div>
+
+            <!-- جدول مشخصات مقایسه‌ای -->
+            <div class="overflow-x-auto pt-4">
+                <table class="w-full text-xs sm:text-sm text-right border-collapse">
+                    <thead>
+                        <tr class="bg-slate-900 text-white">
+                            <th class="p-3.5 rounded-tr-xl">گروه متریال</th>
+                            <th class="p-3.5">چگالی جریان (A/cm²)</th>
+                            <th class="p-3.5">سرعت خطی مجاز (m/s)</th>
+                            <th class="p-3.5">افت ولتاژ تماسی</th>
+                            <th class="p-3.5 rounded-tl-xl">کاربرد شاخص</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-200 bg-slate-50">
+                        <tr>
+                            <td class="p-3 font-bold text-slate-900">الکتروگرافیت خالص</td>
+                            <td class="p-3">۸ تا ۱۲</td>
+                            <td class="p-3">تا ۵۰ m/s</td>
+                            <td class="p-3">متوسط رو به بالا</td>
+                            <td class="p-3">موتورهای DC صنایع فولاد و تراکشن</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-slate-900">مس گرافیتی ۵۰٪</td>
+                            <td class="p-3">۱۸ تا ۲۵</td>
+                            <td class="p-3">تا ۳۰ m/s</td>
+                            <td class="p-3">بسیار پایین</td>
+                            <td class="p-3">اسلیپ‌رینگ و ژنراتورهای صنعتی</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-bold text-slate-900">کربن گرافیت سخت</td>
+                            <td class="p-3">۶ تا ۹</td>
+                            <td class="p-3">تا ۲۰ m/s</td>
+                            <td class="p-3">بالا</td>
+                            <td class="p-3">الکتروموتورهای سرعت پایین با بار پایدار</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ================= بخش ۳: پاتینا و لایه محافظ کموتاتور (قابل ویرایش) ================= -->
+        <section class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-r-4 border-brand-orange pr-3">
+                نقش لایه محافظ پاتینا (Patina) در افزایش ۵ برابری طول عمر کموتاتور
+            </h2>
+            <p class="text-sm sm:text-base leading-8 text-slate-600">
+                بسیاری از اپراتورهای نگهداری تصور می‌کنند سطح کموتاتور همیشه باید مانند مس براق باشد؛ این یک اشتباه رایج است! در شرایط کاری استاندارد، بر اثر واکنش الکتروشیمیایی و سایش کنترل‌شده، لایه‌ای نازک به ضخامت چند نانومتر متشکل از اکسید مس (Cu₂O)، گرافیت منتقل شده و رطوبت هوا روی سطح لامل‌ها شکل می‌گیرد که به آن <strong>فیلم پاتینا (Patina)</strong> می‌گویند. رنگ این لایه باید قهوه‌ای شکلاتی یکدست باشد. انتخاب گرید مناسب از شرکت میعاد صنعت ضامن تشکیل سریع و پایدار این لایه محافظ است.
+            </p>
+        </section>
+
+        <!-- باکس بنر استعلام مهندسی معکوس -->
+        <div class="bg-gradient-to-l from-slate-900 via-slate-950 to-slate-900 rounded-3xl p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
+            <div class="space-y-2 text-right">
+                <span class="text-xs text-orange-400 font-black">ساخت سفارشی مطابق نمونه شما</span>
+                <h3 class="text-lg sm:text-xl font-black">نیاز به کد فنی معادل یا بازتولید ذغال‌های وارداتی دارید؟</h3>
+                <p class="text-xs text-slate-300">مهندسان متالورژی میعاد صنعت آماده آنالیز نمونه فرسوده و ارائه برگه آنالیز SEM هستند.</p>
+            </div>
+            <a href="{% url 'carbon_s195' %}" class="px-6 py-3.5 rounded-xl bg-brand-orange hover:bg-orange-600 font-black text-xs text-white shrink-0 transition shadow-lg shadow-orange-500/20">
+                مشاهده محصولات گرافیتی
+            </a>
+        </div>
+
+    </div>
+</article>
+{% endblock %}

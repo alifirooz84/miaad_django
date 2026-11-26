@@ -1,0 +1,1258 @@
+{% extends 'base_en.html' %}
+{% load static %}
+
+{% block title %}Miaad Sanat Sirjan Gohar Knowledge-Based Co. | Design & Manufacturing of Advanced Industrial Components{% endblock %}
+
+{% block content %}
+<!-- Section 1: Hero Section with 3-Slide Background Slider & Modern Glassmorphism -->
+<section id="hero" class="relative min-h-[85vh] flex items-center justify-center overflow-hidden" 
+         x-data="{ 
+            currentSlide: 0, 
+            slides: [
+                '{% static 'images/hero-1.jpg' %}',
+                '{% static 'images/hero-2.jpg' %}',
+                '{% static 'images/hero-3.jpg' %}'
+            ],
+            init() {
+                setInterval(() => {
+                    this.currentSlide = (this.currentSlide + 1) % this.slides.length;
+                }, 5000);
+            }
+         }">
+    
+    <!-- Background Image Layers -->
+    <template x-for="(slide, index) in slides" :key="index">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out"
+             :style="`background-image: url('${slide}');`"
+             :class="currentSlide === index ? 'opacity-100 scale-105' : 'opacity-0 scale-100'">
+        </div>
+    </template>
+
+    <!-- Dark Overlay & Subtle Backdrop Gradient -->
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/70 to-slate-900/50 backdrop-blur-[2px]"></div>
+
+    <!-- Hero Content -->
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-20 py-24 space-y-8">
+        
+        <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-orange-400 text-xs sm:text-sm font-bold shadow-lg">
+            <span class="material-symbols-outlined text-base text-orange-500">verified</span>
+            Built by Knowledge, Driven by Diligence
+        </div>
+
+        <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-[1.3] tracking-tight">
+            Specialized Design & Manufacturing of 
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 via-amber-400 to-orange-400">Industrial Electrical Carbon Brushes & Wear-Resistant Ceramics</span>
+        </h1>
+
+        <p class="text-slate-200 text-sm sm:text-lg leading-relaxed font-normal max-w-3xl mx-auto drop-shadow">
+            The nation's leading end-to-end manufacturer of industrial electrical carbon brushes with 100% domestic production depth.
+        </p>
+
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a href="#products" class="bg-orange-500 hover:bg-orange-600 text-white font-black px-8 py-4 rounded-xl text-xs sm:text-sm transition duration-300 shadow-xl shadow-orange-500/25 flex items-center gap-2 group">
+                <span>Explore Product Catalog</span>
+                <span class="material-symbols-outlined text-base group-hover:translate-y-0.5 transition">expand_more</span>
+            </a>
+            <a href="#inquiry-box" class="bg-slate-900/80 hover:bg-slate-800 text-white font-bold px-8 py-4 rounded-xl text-xs sm:text-sm transition duration-300 flex items-center gap-2 border border-white/20 hover:border-orange-500">
+                <span>Submit Technical Inquiry & Drawings</span>
+                <span class="material-symbols-outlined text-base text-orange-400">send</span>
+            </a>
+        </div>
+
+        <!-- Slider Indicators -->
+        <div class="flex justify-center items-center gap-2.5 pt-6">
+            <template x-for="(slide, index) in slides" :key="index">
+                <button @click="currentSlide = index" 
+                        class="h-2 rounded-full transition-all duration-300" 
+                        :class="currentSlide === index ? 'w-8 bg-orange-500' : 'w-2 bg-white/40'"></button>
+            </template>
+        </div>
+
+    </div>
+</section>
+
+<!-- Section 2: Factory Video Showcase -->
+<section class="py-16 relative z-10 -mt-10"
+         x-data="{
+             initObserver() {
+                 let observer = new IntersectionObserver((entries) => {
+                     entries.forEach(entry => {
+                         if (entry.isIntersecting) {
+                             this.$refs.factoryVideo.play().catch(() => {});
+                         } else {
+                             this.$refs.factoryVideo.pause();
+                         }
+                     });
+                 }, { threshold: 0.3 });
+                 observer.observe(this.$refs.videoBox);
+             }
+         }"
+         x-init="initObserver()">
+    
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white/95 backdrop-blur-xl rounded-3xl p-4 sm:p-6 shadow-2xl border border-slate-200/80 space-y-4">
+            
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 px-2">
+                <div>
+                    <h3 class="text-slate-900 text-base sm:text-lg font-black">Miaad Sanat Advanced Production Lines</h3>
+                    <p class="text-xs text-slate-500 mt-0.5">Explore our domestic manufacturing capabilities and metallurgical quality control protocols</p>
+                </div>
+                <span class="text-xs font-mono bg-slate-100 text-slate-700 border border-slate-200 px-3 py-1 rounded-lg font-bold">
+                    FULL HD • AUTO PLAY
+                </span>
+            </div>
+
+            <div x-ref="videoBox" class="relative w-full aspect-[16/10] rounded-2xl overflow-hidden bg-slate-950 shadow-inner group">
+                <video x-ref="factoryVideo"
+                       autoplay 
+                       muted 
+                       loop 
+                       playsinline 
+                       preload="auto"
+                       class="w-full h-full object-cover">
+                    <source src="{% static 'videos/factory-intro.mp4' %}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none"></div>
+
+                <div class="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-xl bg-slate-950/80 backdrop-blur-md text-xs font-bold text-orange-400 flex items-center gap-2 border border-white/10 pointer-events-none">
+                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                    Virtual Plant Tour
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Section 3: About Us -->
+<section id="about" class="py-24 relative z-10 border-t border-slate-200/80 bg-slate-50/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="bg-white rounded-3xl p-8 sm:p-14 shadow-xl relative overflow-hidden border border-slate-200/90">
+            
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-slate-900/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+                
+                <!-- Content Column -->
+                <div class="lg:col-span-7 space-y-7">
+                    
+                    <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200 text-orange-600 text-xs font-black shadow-sm">
+                        <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                        <span>Pioneer in Advanced Metallurgy & Composite Materials</span>
+                    </div>
+                    
+                    <h2 class="text-3xl sm:text-5xl font-black text-slate-950 leading-[1.25] tracking-tight">
+                        Knowledge-Based Enterprise <br class="hidden sm:block" />
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-amber-500">
+                            Miaad Sanat Sirjan Gohar Co.
+                        </span>
+                    </h2>
+
+                    <p class="text-slate-600 text-sm sm:text-base leading-relaxed text-left font-normal">
+                        Relying on technical know-how in manufacturing composite components and leveraging academic talent, Miaad Sanat Sirjan Gohar was established with a focus on precision engineering of electric motor carbon brushes and industrial composite parts. Through specialized localization of industrial electrical carbon brushes, chute wear-resistant ceramics, and industrial composite solutions, our company stands as a dependable supplier for the country's prominent mining and steel complexes.
+                    </p>
+                </div>
+
+                <!-- Plant Image Column -->
+                <div class="lg:col-span-5 flex flex-col gap-5">
+                    
+                    <div class="w-full h-72 sm:h-80 rounded-3xl overflow-hidden relative border-2 border-white shadow-xl group bg-slate-900">
+                        <img src="{% static 'images/factory.jpg' %}" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80';"
+                             alt="Miaad Sanat Manufacturing Plant" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-700 ease-out opacity-90">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/20 to-transparent"></div>
+
+                        <div class="absolute top-4 right-4 z-10 px-3.5 py-1.5 rounded-xl bg-white/95 backdrop-blur-md text-[11px] font-bold text-slate-800 shadow-md flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                            Miaad Sanat Manufacturing Plant
+                        </div>
+
+                        <div class="absolute bottom-4 right-4 left-4 z-10 text-white">
+                            <div class="text-xs font-extrabold text-orange-400">Industrial Zone No. 1, Sirjan, Iran</div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Section 4: Engineering Products Catalog -->
+<section id="products" class="relative py-28 bg-slate-100/70 border-t border-slate-200/80" 
+         x-data="{ filter: 'all' }">
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        
+        <!-- Section Header -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-14 gap-6">
+            <div class="space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-slate-200 text-slate-700 text-xs font-bold shadow-sm">
+                    <span class="material-symbols-outlined text-sm text-orange-500">category</span>
+                    Engineering Catalog & Metallurgical Specifications
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight">
+                    Specialized & <span class="text-orange-500">Localized Products</span>
+                </h2>
+                <p class="text-xs sm:text-sm text-slate-600 max-w-2xl font-medium">
+                    Precision design, proprietary powder metallurgy formulations, and custom manufacturing tailored to technical drawings and working conditions.
+                </p>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div class="flex flex-wrap items-center gap-2 p-1.5 bg-white rounded-2xl border border-slate-200 shadow-sm">
+                <button @click="filter = 'all'" 
+                        :class="filter === 'all' ? 'bg-orange-500 text-white shadow-md font-black' : 'text-slate-600 hover:text-slate-900 font-medium'"
+                        class="px-4 py-2 rounded-xl text-xs transition duration-300">
+                    All Products
+                </button>
+                <button @click="filter = 'carbon'" 
+                        :class="filter === 'carbon' ? 'bg-orange-500 text-white shadow-md font-black' : 'text-slate-600 hover:text-slate-900 font-medium'"
+                        class="px-4 py-2 rounded-xl text-xs transition duration-300">
+                    Electrical Carbon Brushes
+                </button>
+                <button @click="filter = 'ceramic'" 
+                        :class="filter === 'ceramic' ? 'bg-orange-500 text-white shadow-md font-black' : 'text-slate-600 hover:text-slate-900 font-medium'"
+                        class="px-4 py-2 rounded-xl text-xs transition duration-300">
+                    Wear-Resistant Ceramics
+                </button>
+                <button @click="filter = 'composite'" 
+                        :class="filter === 'composite' ? 'bg-orange-500 text-white shadow-md font-black' : 'text-slate-600 hover:text-slate-900 font-medium'"
+                        class="px-4 py-2 rounded-xl text-xs transition duration-300">
+                    Composites & Resistors
+                </button>
+            </div>
+        </div>
+
+        <!-- Product Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <!-- Product 1: Industrial Carbon Brush S-195 -->
+            <div x-show="filter === 'all' || filter === 'carbon'"
+                 x-transition
+                 class="bg-white rounded-3xl p-5 flex flex-col justify-between group border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-orange-500/50 transition-all duration-300">
+                
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative mb-5 shadow-sm border border-slate-100 bg-slate-900">
+                        <img src="{% static 'products/carbon-s195.png' %}" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=600&q=80';"
+                             alt="Industrial Carbon Brush S-195" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-white/95 text-slate-900 font-bold text-xs shadow-sm">
+                            Code: S-195
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-orange-500 text-white font-mono text-[11px] font-bold shadow-sm">
+                            EQ_64K
+                        </span>
+                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-mono">
+                            ELECTRO-GRAPHITE
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5 px-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-bold text-orange-600">High-Voltage Electrographite (DC)</span>
+                    </div>
+
+                    <h3 class="text-lg font-black text-slate-900 px-1 group-hover:text-orange-600 transition">
+                        Electrographite Carbon Brush S-195
+                    </h3>
+
+                    <p class="text-xs text-slate-600 mt-2 px-1 leading-relaxed text-left">
+                        Manufactured from high-purity carbon with elevated heat treatment, offering superior conductivity and spark-free commutation for DC motors in cement and steel mills.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 my-4 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-[11px]">
+                        <div class="text-slate-500">Density: <span class="font-bold text-slate-800 font-mono">1.62 g/cm³</span></div>
+                        <div class="text-slate-500">Resistivity: <span class="font-bold text-slate-800 font-mono">35 μΩ.m</span></div>
+                        <div class="text-slate-500">Current Density: <span class="font-bold text-slate-800 font-mono">12 A/cm²</span></div>
+                        <div class="text-slate-500">Friction Coeff: <span class="font-bold text-slate-800 font-mono">0.14</span></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 px-1 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">Field Tested</span>
+                    <a href="{% url 'carbon_s195' %}" class="bg-slate-900 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition duration-200 flex items-center gap-1 shadow-sm">
+                        <span>View Details</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 2: Copper-Graphite Carbon Brush H-128 -->
+            <div x-show="filter === 'all' || filter === 'carbon'"
+                 x-transition
+                 class="bg-white rounded-3xl p-5 flex flex-col justify-between group border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-orange-500/50 transition-all duration-300">
+                
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative mb-5 shadow-sm border border-slate-100 bg-slate-900">
+                        <img src="{% static 'products/carbon-h128.png' %}" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092162384-8987c1d64718?auto=format&fit=crop&w=600&q=80';"
+                             alt="Copper-Graphite Carbon Brush H-128" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-white/95 text-slate-900 font-bold text-xs shadow-sm">
+                            Code: H-128
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-orange-500 text-white font-mono text-[11px] font-bold shadow-sm">
+                            RC73
+                        </span>
+                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-mono">
+                            COPPER-GRAPHITE
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5 px-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-bold text-orange-600">Metal-Graphite with Low Voltage Drop</span>
+                    </div>
+
+                    <h3 class="text-lg font-black text-slate-900 px-1 group-hover:text-orange-600 transition">
+                        Copper-Graphite Brush H-128 Current Transfer
+                    </h3>
+
+                    <p class="text-xs text-slate-600 mt-2 px-1 leading-relaxed text-left">
+                        Formulated from high-purity copper and natural lubricating graphite with ultra-low contact drop for heavy amperage transfer across slip rings and wind turbine generators.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 my-4 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-[11px]">
+                        <div class="text-slate-500">Copper: <span class="font-bold text-slate-800 font-mono">65% Cu</span></div>
+                        <div class="text-slate-500">Density: <span class="font-bold text-slate-800 font-mono">3.85 g/cm³</span></div>
+                        <div class="text-slate-500">Current Density: <span class="font-bold text-slate-800 font-mono">25 A/cm²</span></div>
+                        <div class="text-slate-500">Voltage Drop: <span class="font-bold text-slate-800 font-mono">&lt; 0.3 V</span></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 px-1 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">Long Service Life</span>
+                    <a href="{% url 'carbon_h128' %}" class="bg-slate-900 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition duration-200 flex items-center gap-1 shadow-sm">
+                        <span>View Details</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 3: Shaft Grounding Carbon Brush H-118 -->
+            <div x-show="filter === 'all' || filter === 'carbon'"
+                 x-transition
+                 class="bg-white rounded-3xl p-5 flex flex-col justify-between group border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-orange-500/50 transition-all duration-300">
+                
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative mb-5 shadow-sm border border-slate-100 bg-slate-900">
+                        <img src="{% static 'products/carbon-h118.png' %}" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80';"
+                             alt="Shaft Grounding Brush H-118" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-white/95 text-slate-900 font-bold text-xs shadow-sm">
+                            Code: H-118
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-orange-500 text-white font-mono text-[11px] font-bold shadow-sm">
+                            RC53
+                        </span>
+                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-mono">
+                            SHAFT GROUNDING
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5 px-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-bold text-orange-600">Induced Current Discharge & Lightning Protection</span>
+                    </div>
+
+                    <h3 class="text-lg font-black text-slate-900 px-1 group-hover:text-orange-600 transition">
+                        Shaft Grounding & Bearing Protection Brush H-118
+                    </h3>
+
+                    <p class="text-xs text-slate-600 mt-2 px-1 leading-relaxed text-left">
+                        Engineered to reliably discharge parasitic shaft currents to ground, eliminating bearing pitting and electrical erosion in wind turbines and traction motors.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 my-4 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-[11px]">
+                        <div class="text-slate-500">Silver/Copper: <span class="font-bold text-slate-800 font-mono">Special Grade</span></div>
+                        <div class="text-slate-500">Conductivity: <span class="font-bold text-slate-800 font-mono">Ultra-Fast</span></div>
+                        <div class="text-slate-500">Application: <span class="font-bold text-slate-800">Bearing Protection</span></div>
+                        <div class="text-slate-500">Standard: <span class="font-bold text-slate-800 font-mono">IEC 60034</span></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 px-1 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">Zero Pitting</span>
+                    <a href="{% url 'carbon_h118' %}" class="bg-slate-900 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition duration-200 flex items-center gap-1 shadow-sm">
+                        <span>View Details</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 4: Wear-Resistant Chute Ceramic Liners -->
+            <div x-show="filter === 'all' || filter === 'ceramic'"
+                 x-transition
+                 class="bg-white rounded-3xl p-5 flex flex-col justify-between group border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-orange-500/50 transition-all duration-300">
+                
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative mb-5 shadow-sm border border-slate-100 bg-slate-900">
+                        <img src="{% static 'products/ceramic-liner.png' %}" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80';"
+                             alt="Wear-Resistant Chute Ceramic Liner" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-white/95 text-slate-900 font-bold text-xs shadow-sm">
+                            Alumina 92% & 95%
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-orange-500 text-white font-mono text-[11px] font-bold shadow-sm">
+                            9 Mohs Hardness
+                        </span>
+                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-mono">
+                            CERAMIC TILES
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5 px-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-bold text-orange-600">Ultra-Hard Anti-Wear Liners</span>
+                    </div>
+
+                    <h3 class="text-lg font-black text-slate-900 px-1 group-hover:text-orange-600 transition">
+                        Wear-Resistant Ceramic Liners & Chute Tiles
+                    </h3>
+
+                    <p class="text-xs text-slate-600 mt-2 px-1 leading-relaxed text-left">
+                        Hexagonal tiles and weldable alumina ceramic plates with diamond-grade hardness, engineered for iron ore chutes, hoppers, and pelletizing transfer lines.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 my-4 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-[11px]">
+                        <div class="text-slate-500">Alumina Content: <span class="font-bold text-slate-800 font-mono">92-95% Al2O3</span></div>
+                        <div class="text-slate-500">Hardness: <span class="font-bold text-slate-800 font-mono">9 Mohs</span></div>
+                        <div class="text-slate-500">Thermal Limit: <span class="font-bold text-slate-800 font-mono">Up to 1100°C</span></div>
+                        <div class="text-slate-500">Installation: <span class="font-bold text-slate-800">Adhesive / Weldable</span></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 px-1 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">10x Hardox Lifespan</span>
+                    <a href="{% url 'ceramic_liner' %}" class="bg-slate-900 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition duration-200 flex items-center gap-1 shadow-sm">
+                        <span>View Details</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 5: Wind Turbine Blades & Composites -->
+            <div x-show="filter === 'all' || filter === 'composite'"
+                 x-transition
+                 class="bg-white rounded-3xl p-5 flex flex-col justify-between group border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-orange-500/50 transition-all duration-300">
+                
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative mb-5 shadow-sm border border-slate-100 bg-slate-900">
+                        <img src="{% static 'products/wind-turbine.png' %}" 
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80';"
+                             alt="Wind Turbine Composite Blade" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-white/95 text-slate-900 font-bold text-xs shadow-sm">
+                            Renewable Energy
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-orange-500 text-white font-mono text-[11px] font-bold shadow-sm">
+                            FRP / CFRP
+                        </span>
+                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-mono">
+                            COMPOSITE BLADES
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5 px-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-bold text-orange-600">Wind Farms & Custom Parts</span>
+                    </div>
+
+                    <h3 class="text-lg font-black text-slate-900 px-1 group-hover:text-orange-600 transition">
+                        Wind Turbine Blades & Composite Components
+                    </h3>
+
+                    <p class="text-xs text-slate-600 mt-2 px-1 leading-relaxed text-left">
+                        Advanced aerodynamic design and manufacturing of glass and carbon fiber composite components engineered to withstand high wind gusts, cyclic fatigue, and harsh environments.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 my-4 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-[11px]">
+                        <div class="text-slate-500">Resin Matrix: <span class="font-bold text-slate-800 font-mono">Vinyl Ester</span></div>
+                        <div class="text-slate-500">Reinforcement: <span class="font-bold text-slate-800 font-mono">Glass/Carbon</span></div>
+                        <div class="text-slate-500">UV Resistance: <span class="font-bold text-slate-800">Anti-UV Topcoat</span></div>
+                        <div class="text-slate-500">Testing: <span class="font-bold text-slate-800">Fatigue & Dynamic</span></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 px-1 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">Aerodynamic Performance</span>
+                    <a href="{% url 'wind_turbine' %}" class="bg-slate-900 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition duration-200 flex items-center gap-1 shadow-sm">
+                        <span>View Details</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product 6: Braking Grid Resistors & Insulators -->
+            <div x-show="filter === 'all' || filter === 'composite'"
+                 x-transition
+                 class="bg-white rounded-3xl p-5 flex flex-col justify-between group border border-slate-200 shadow-sm hover:-translate-y-1.5 hover:shadow-xl hover:border-orange-500/50 transition-all duration-300">
+                
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative mb-5 shadow-sm border border-slate-100 bg-slate-900">
+                        <img src="{% static 'products/grid-resistor.png' %}" 
+                             alt="Haul Truck Braking Resistor" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+                        
+                        <span class="absolute top-3 left-3 px-3 py-1 rounded-lg bg-white/95 text-slate-900 font-bold text-xs shadow-sm">
+                            Heavy Mining Equipment
+                        </span>
+                        <span class="absolute top-3 right-3 px-2.5 py-1 rounded-lg bg-orange-500 text-white font-mono text-[11px] font-bold shadow-sm">
+                            Refractory Insulation
+                        </span>
+                        <div class="absolute bottom-3 left-3 px-2.5 py-1 rounded-lg bg-slate-900/80 text-white text-[10px] font-mono">
+                            GRID RESISTOR
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-2 mb-1.5 px-1">
+                        <span class="w-2 h-2 rounded-full bg-orange-500"></span>
+                        <span class="text-xs font-bold text-orange-600">Electric Haul Truck Dynamic Braking</span>
+                    </div>
+
+                    <h3 class="text-lg font-black text-slate-900 px-1 group-hover:text-orange-600 transition">
+                        Braking Grid Resistor Insulators (Haul Trucks & Locomotives)
+                    </h3>
+
+                    <p class="text-xs text-slate-600 mt-2 px-1 leading-relaxed text-left">
+                        Manufacturing ceramic and mica-based braking resistor insulators designed to endure extreme thermal shock cycles and high dielectric loads in Komatsu and Caterpillar mining trucks.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-2 my-4 p-3 rounded-2xl bg-slate-50 border border-slate-100 text-[11px]">
+                        <div class="text-slate-500">Thermal Resistance: <span class="font-bold text-slate-800 font-mono">Up to 850°C</span></div>
+                        <div class="text-slate-500">Dielectric Strength: <span class="font-bold text-slate-800 font-mono">&gt; 15 kV/mm</span></div>
+                        <div class="text-slate-500">Resistance: <span class="font-bold text-slate-800">Shock & Vibration Proof</span></div>
+                        <div class="text-slate-500">Compatibility: <span class="font-bold text-slate-800">240-Ton Haul Trucks</span></div>
+                    </div>
+                </div>
+
+                <div class="pt-4 px-1 border-t border-slate-100 flex items-center justify-between">
+                    <span class="text-[11px] font-semibold text-slate-600 bg-slate-100 px-2.5 py-1 rounded-lg border border-slate-200">Thermal Shock Resistant</span>
+                    <a href="{% url 'grid_resistor' %}" class="bg-slate-900 hover:bg-orange-500 text-white font-bold px-4 py-2 rounded-xl text-xs transition duration-200 flex items-center gap-1 shadow-sm">
+                        <span>View Details</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Section 5: Company Leadership & Engineering Specialists -->
+<section id="team" class="py-24 relative z-10 border-t border-slate-200/80 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider">Human Capital & Academic Elites</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-950 mt-1">Company Executives & Senior Specialists</h2>
+            <p class="text-xs sm:text-sm text-slate-600 mt-2 font-normal">Directing advanced design, precision manufacturing, and metallurgical processes</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <!-- 1. Mohammad Amin Jahanshahi -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl hover:border-orange-500/40 transition duration-300">
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-sm bg-slate-100 border border-slate-200 mb-5">
+                        <img src="{% static 'team/jahanshahi.jpg' %}" 
+                             alt="Mohammad Amin Jahanshahi" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="inline-block text-xs font-bold text-white bg-slate-900/90 border border-white/20 px-3 py-1 rounded-xl shadow-sm">
+                                Chief Technical Officer (CTO)
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="px-2">
+                        <h3 class="text-lg font-black text-slate-950">Mohammad Amin Jahanshahi</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed text-left">
+                            Supervision of engineering standards, dimensional design of graphite components, and drawing compliance with international grades.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="px-2 pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span>Engineering & Design Dept.</span>
+                    <span class="text-orange-600 font-bold">Miaad Sanat</span>
+                </div>
+            </div>
+
+            <!-- 2. Ali Nosratabadi -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl hover:border-orange-500/40 transition duration-300">
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-sm bg-slate-100 border border-slate-200 mb-5">
+                        <img src="{% static 'team/nosratabadi.jpg' %}" 
+                             alt="Ali Nosratabadi" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="inline-block text-xs font-bold text-white bg-slate-900/90 border border-white/20 px-3 py-1 rounded-xl shadow-sm">
+                                Production Director
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="px-2">
+                        <h3 class="text-lg font-black text-slate-950">Ali Nosratabadi</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed text-left">
+                            Management of industrial carbon brush manufacturing lines, hydraulic pressing, wear-resistant ceramic sintering, and terminal connection QC.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="px-2 pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span>Production & Processing Lines</span>
+                    <span class="text-orange-600 font-bold">Miaad Sanat</span>
+                </div>
+            </div>
+
+            <!-- 3. Hamid Reza Esmaeilinejad -->
+            <div class="bg-slate-50 border border-slate-200/80 rounded-3xl p-4 flex flex-col justify-between group hover:shadow-xl hover:border-orange-500/40 transition duration-300">
+                <div>
+                    <div class="w-full aspect-[4/3] rounded-2xl overflow-hidden relative shadow-sm bg-slate-100 border border-slate-200 mb-5">
+                        <img src="{% static 'team/esmaeili.jpg' %}" 
+                             alt="Hamid Reza Esmaeilinejad" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 ease-out">
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/75 via-transparent to-transparent"></div>
+                        <div class="absolute bottom-3 left-3 z-10">
+                            <span class="inline-block text-xs font-bold text-white bg-slate-900/90 border border-white/20 px-3 py-1 rounded-xl shadow-sm">
+                                R&D Director
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="px-2">
+                        <h3 class="text-lg font-black text-slate-950">Hamid Reza Esmaeilinejad</h3>
+                        <p class="text-xs text-slate-600 mt-2 leading-relaxed text-left">
+                            Formulation development for advanced metallurgy, polymer composite synthesis, and abrasion wear optimization of ceramic linings.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="px-2 pt-4 mt-4 border-t border-slate-200 flex items-center justify-between text-[11px] text-slate-500 font-medium">
+                    <span>Metallurgy & Materials R&D</span>
+                    <span class="text-orange-600 font-bold">Miaad Sanat</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Section 6: Infinite Partners Logo Showcase -->
+<section id="partners" class="py-24 relative z-10 border-t border-slate-200/80 overflow-hidden bg-slate-50">
+    
+    <style>
+        @keyframes scroll-infinite-ltr {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-container-ltr {
+            display: flex;
+            width: max-content;
+            animation: scroll-infinite-ltr 35s linear infinite;
+        }
+        .marquee-container-ltr:hover {
+            animation-play-state: paused;
+        }
+    </style>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14 text-center">
+        <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-orange-50 border border-orange-200 text-orange-700 text-xs sm:text-sm font-black shadow-sm mb-4">
+            <span class="material-symbols-outlined text-base text-orange-500">handshake</span>
+            <span>Credibility, Commitment & Industrial Leadership</span>
+        </div>
+        <h3 class="text-3xl sm:text-5xl font-black text-slate-950 tracking-tight">
+            Proudly Partnering with the Country's <span class="text-orange-500">Major Mining & Industrial Hubs</span>
+        </h3>
+        <p class="text-xs sm:text-base text-slate-600 mt-3 max-w-2xl mx-auto font-normal">
+            Localization and supply of advanced metallurgical components, custom carbon brushes, and anti-wear liners for primary steel and iron ore giants
+        </p>
+    </div>
+    
+    <!-- Marquee Outer Container with Gradient Masking -->
+    <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_10%,white_90%,transparent)]">
+        <div class="marquee-container-ltr items-center py-8">
+            
+            <!-- Set 1 -->
+            <div class="flex items-center gap-12 shrink-0 pr-12">
+                <!-- 1. Golgohar -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/golgohar.jpg' %}" 
+                                 alt="Golgohar Mining & Industrial Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Golgohar Mining & Ind.</span>
+                </div>
+
+                <!-- 2. Gohar Zamin -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/gohar-zamin.jpg' %}" 
+                                 alt="GoharZamin Iron Ore Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">GoharZamin Iron Ore</span>
+                </div>
+
+                <!-- 3. Chadormalu -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/chadormalu.jpg' %}" 
+                                 alt="Chadormalu Mining & Industrial Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Chadormalu Mining & Ind.</span>
+                </div>
+
+                <!-- 4. Owlang -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/owlang.jpg' %}" 
+                                 alt="Owlang Mining Services Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Owlang Mining Services</span>
+                </div>
+
+                <!-- 5. Nazm Avaran -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/nazmavaran.png' %}" 
+                                 alt="Nazm Avaran Sanat & Madan Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Nazm Avaran Ind. & Mining</span>
+                </div>
+
+                <!-- 6. Arya Naran -->
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/aryanaran.jpg' %}" 
+                                 alt="Arya Naran Sarcheshmeh Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Arya Naran Sarcheshmeh</span>
+                </div>
+            </div>
+
+            <!-- Set 2 (Exact Duplicate for Continuous Loop) -->
+            <div class="flex items-center gap-12 shrink-0 pr-12">
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/golgohar.jpg' %}" 
+                                 alt="Golgohar Mining & Industrial Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Golgohar Mining & Ind.</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/gohar-zamin.jpg' %}" 
+                                 alt="GoharZamin Iron Ore Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">GoharZamin Iron Ore</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/chadormalu.jpg' %}" 
+                                 alt="Chadormalu Mining & Industrial Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Chadormalu Mining & Ind.</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/owlang.jpg' %}" 
+                                 alt="Owlang Mining Services Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Owlang Mining Services</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/nazmavaran.png' %}" 
+                                 alt="Nazm Avaran Sanat & Madan Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Nazm Avaran Ind. & Mining</span>
+                </div>
+
+                <div class="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div class="w-36 h-36 sm:w-44 sm:h-44 rounded-full p-3 flex items-center justify-center border-2 border-white shadow-2xl group-hover:border-orange-500 group-hover:scale-110 transition duration-500 bg-white">
+                        <div class="w-full h-full rounded-full bg-white flex items-center justify-center p-3 overflow-hidden shadow-inner">
+                            <img src="{% static 'partners/aryanaran.jpg' %}" 
+                                 alt="Arya Naran Sarcheshmeh Co." 
+                                 class="w-full h-full object-contain group-hover:scale-105 transition duration-300">
+                        </div>
+                    </div>
+                    <span class="text-xs sm:text-sm font-black text-slate-800 group-hover:text-orange-600 transition">Arya Naran Sarcheshmeh</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Section 7: Technical Articles & Knowledge Base -->
+<section id="articles" class="relative pt-24 pb-32 bg-slate-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
+        
+        <div class="text-center mb-16">
+            <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider">Advancing Engineering Knowledge</span>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-2">Technical Knowledge Base & Articles</h2>
+            <p class="text-sm text-slate-600 mt-3 max-w-2xl mx-auto">Latest insights, material selection guides, and metallurgical engineering analyses</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Article 1 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-slate-200">
+                <div class="relative aspect-video overflow-hidden bg-slate-900">
+                    <img src="{% static 'images/article-1.jpg' %}" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=600&q=80';"
+                         alt="Carbon Brush Grade Guide" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-base font-black text-slate-900 mb-3 text-left leading-relaxed group-hover:text-orange-600 transition">
+                        Comprehensive Guide to Selecting the Optimal Carbon Brush Grade for DC Motors
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-left mb-6">
+                        Choosing the right electrographite grade plays a vital role in commutation quality, minimizing sparking, and prolonging commutator lifespan.
+                    </p>
+                    <a href="#" class="mt-auto text-orange-600 font-bold text-xs flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
+                        <span>Read Article</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-slate-200">
+                <div class="relative aspect-video overflow-hidden bg-slate-900">
+                    <img src="{% static 'images/article-2.jpg' %}" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=600&q=80';"
+                         alt="Ceramic Liners vs Hardox" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-base font-black text-slate-900 mb-3 text-left leading-relaxed group-hover:text-orange-600 transition">
+                        Ceramic Liners vs. Hardox: Which Wear Protection Solution Suits Your Mine?
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-left mb-6">
+                        Comparative analysis of abrasive wear resistance, impact durability, and total lifecycle costs of alumina ceramic tiles in heavy-duty transfer chutes.
+                    </p>
+                    <a href="#" class="mt-auto text-orange-600 font-bold text-xs flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
+                        <span>Read Article</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border border-slate-200">
+                <div class="relative aspect-video overflow-hidden bg-slate-900">
+                    <img src="{% static 'images/article-3.jpg' %}" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=600&q=80';"
+                         alt="Carbon vs Glass Fiber Composites" 
+                         class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="text-base font-black text-slate-900 mb-3 text-left leading-relaxed group-hover:text-orange-600 transition">
+                        Comparison of Carbon Fiber vs. Fiberglass Composites in Wind Turbine Blades
+                    </h3>
+                    <p class="text-xs text-slate-500 leading-relaxed text-left mb-6">
+                        Evaluating mechanical fatigue limits, stiffness-to-weight ratios, and vinyl ester vs. epoxy resin systems in blade engineering.
+                    </p>
+                    <a href="#" class="mt-auto text-orange-600 font-bold text-xs flex items-center justify-start gap-1 group-hover:gap-2 transition-all">
+                        <span>Read Article</span>
+                        <span class="material-symbols-outlined text-sm">arrow_right</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- Section 8: Comprehensive Technical Inquiry Form -->
+<section id="inquiry-box" class="py-20 relative z-10 bg-white border-t border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-slate-50 rounded-3xl p-8 sm:p-12 shadow-sm border border-slate-200">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="text-xs font-extrabold text-orange-600 uppercase tracking-wider">Direct Order & Communication</span>
+                <h2 class="text-2xl sm:text-3xl font-black text-slate-950 mt-1">Technical Inquiry, Drawing & Sample Submission Form</h2>
+                <p class="text-xs sm:text-sm text-slate-600 mt-2">To request custom manufacturing of graphite, ceramic, or composite parts, complete the form below for prompt review by our engineers.</p>
+            </div>
+
+            <form class="space-y-6" onsubmit="event.preventDefault(); alert('Your technical inquiry has been successfully registered.');">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Applicant / Company Name</label>
+                        <input type="text" required placeholder="e.g., Mining & Industrial Co." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:orange-500 shadow-sm transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Direct Phone Number</label>
+                        <input type="tel" required placeholder="+98 912 345 6789" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:orange-500 shadow-sm transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Corporate Email (Optional)</label>
+                        <input type="email" placeholder="info@company.com" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-1 focus:orange-500 shadow-sm transition">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Component Category</label>
+                        <select class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 focus:outline-none focus:border-orange-500 shadow-sm transition">
+                            <option>Electrical Carbon Brushes (Copper & Electrographite)</option>
+                            <option>Chute Wear-Resistant Ceramics & Liners</option>
+                            <option>Wind Turbine Blades & Composite Components</option>
+                            <option>Haul Truck Braking Resistors & Insulators</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Part Number or Equivalent Grade</label>
+                        <input type="text" placeholder="e.g., RC73, EQ_64K, or S-195" class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-sm transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-700 mb-2">Attach Technical Drawing or Photo</label>
+                        <input type="file" class="w-full bg-white border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-600 file:mr-2 file:py-1.5 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-bold file:bg-slate-900 file:text-white hover:file:bg-orange-500 cursor-pointer shadow-sm transition">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-bold text-slate-700 mb-2">Technical Description, Operating Conditions & Quantity</label>
+                    <textarea rows="4" placeholder="Specify dimensions, rated motor current, operating environment, wear levels, or other specifications..." class="w-full bg-white border border-slate-300 rounded-xl px-4 py-3 text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-orange-500 shadow-sm transition"></textarea>
+                </div>
+
+                <div class="flex justify-center pt-2">
+                    <button type="submit" class="w-full sm:w-1/2 bg-orange-500 hover:bg-orange-600 text-white font-black py-4 rounded-xl text-sm shadow-xl shadow-orange-500/20 transition duration-300 flex items-center justify-center gap-2">
+                        <span>Submit Technical Inquiry & Review Request</span>
+                        <span class="material-symbols-outlined text-base">send</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+<!-- Section 9: Metallurgical Testing & Laboratory Results -->
+<section class="py-24 relative overflow-hidden bg-slate-100 border-t border-slate-200/80"
+         x-data="{
+             current: 0,
+             total: 2,
+             autoplay: null,
+             previewModal: false,
+             activeImg: '',
+             activeTitle: '',
+             start() {
+                 this.autoplay = setInterval(() => {
+                     this.current = (this.current + 1) % this.total;
+                 }, 4500);
+             },
+             stop() {
+                 clearInterval(this.autoplay);
+             },
+             openPreview(img, title) {
+                 this.activeImg = img;
+                 this.activeTitle = title;
+                 this.previewModal = true;
+             }
+         }"
+         x-init="start()"
+         @mouseenter="stop()"
+         @mouseleave="start()"
+         @keydown.escape.window="previewModal = false">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <!-- Header & Nav Controls -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div class="space-y-3">
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black bg-orange-50 text-orange-700 border border-orange-200 shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-orange-500 animate-ping"></span>
+                    Certified by Razi Metallurgical Research Center Standards
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
+                    Laboratory Test Results & <span class="text-orange-500">Analysis Reports</span>
+                </h2>
+                <p class="text-slate-600 text-xs sm:text-sm max-w-2xl font-normal leading-relaxed">
+                    Official documentation of metallurgical characteristics, SEM microstructural imaging, specific electrical resistivity, and mechanical performance under international standards.
+                </p>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="flex items-center gap-3">
+                <button @click="current = (current === 0) ? total - 1 : current - 1" 
+                        class="w-12 h-12 rounded-2xl bg-white hover:bg-orange-500 text-slate-700 hover:text-white flex items-center justify-center border border-slate-200 shadow-sm transition duration-300 group">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition">arrow_back</span>
+                </button>
+                <button @click="current = (current + 1) % total" 
+                        class="w-12 h-12 rounded-2xl bg-white hover:bg-orange-500 text-slate-700 hover:text-white flex items-center justify-center border border-slate-200 shadow-sm transition duration-300 group">
+                    <span class="material-symbols-outlined text-xl group-hover:scale-110 transition">arrow_forward</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Carousel Track (LTR Transform: translateX(-100% * current)) -->
+        <div class="overflow-hidden">
+            <div class="flex transition-transform duration-700 ease-out" 
+                 :style="'transform: translateX(-' + (current * 100) + '%);'">
+
+                <!-- Slide 1 -->
+                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6 px-1">
+
+                    <!-- Card 1: Specific Electrical Resistivity -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-resistivity.png' %}', 'Specific Electrical Resistivity Test')">
+                                <img src="{% static 'test-resistivity.png' %}" 
+                                     alt="Specific Electrical Resistivity Test" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>View Test Sheet</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    Electrical Test
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">bolt</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">Specific Electrical Resistivity</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed text-left font-normal">
+                                Rigorous measurement of specific electrical resistivity to guarantee optimal commutation efficiency and minimal voltage drops.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Flexural Strength Test -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-bending.png' %}', 'Three-Point Bending Test (Flexural Strength)')">
+                                <img src="{% static 'test-bending.png' %}" 
+                                     alt="Bending Test" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>View Test Sheet</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    Mechanical Strength
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">precision_manufacturing</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">Bending Strength (Flexural Test)</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed text-left font-normal">
+                                Assessment of flexural strength and elastic modulus under heavy cyclic motor stress and high mechanical vibration.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: SEM Microstructural Analysis -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-sem.png' %}', 'Scanning Electron Microscopy (SEM)')">
+                                <img src="{% static 'test-sem.png' %}" 
+                                     alt="SEM Microscopic Analysis" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>View SEM Image</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    Microstructure Analysis
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">biotech</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">SEM Electron Microscopy</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed text-left font-normal">
+                                High-resolution scanning electron microscopy to evaluate graphite phase distribution, copper grain bonding, and porosity levels.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="w-full flex-shrink-0 grid grid-cols-1 md:grid-cols-3 gap-6 px-1">
+
+                    <!-- Card 4: Brinell Hardness -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-brinell.jpg' %}', 'Brinell Hardness Test (HBW)')">
+                                <img src="{% static 'test-brinell.jpg' %}" 
+                                     alt="Brinell Hardness Test" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>View Test Sheet</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    Hardness Testing
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">diamond</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">Brinell Hardness Testing</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed text-left font-normal">
+                                Verification of surface hardness and compaction density per HBW standards to prevent commutator ring wear and scoring.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Metallurgical Analysis & XRF -->
+                    <div class="rounded-3xl p-6 bg-white border border-slate-200 shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between group">
+                        <div>
+                            <div class="aspect-[4/3] rounded-2xl overflow-hidden bg-slate-50 border border-slate-200 relative group/img cursor-pointer mb-4"
+                                 @click="openPreview('{% static 'test-analysis.jpeg' %}', 'Metallurgical Analysis & Elemental Purity')">
+                                <img src="{% static 'test-analysis.jpeg' %}" 
+                                     alt="Metallurgical Analysis" 
+                                     class="w-full h-full object-contain p-2 group-hover/img:scale-105 transition duration-300">
+                                <div class="absolute inset-0 bg-slate-950/40 opacity-0 group-hover/img:opacity-100 transition flex items-center justify-center gap-2 text-white font-bold text-xs backdrop-blur-sm">
+                                    <span class="material-symbols-outlined text-lg text-orange-400">zoom_in</span>
+                                    <span>View Test Sheet</span>
+                                </div>
+                                <span class="absolute top-3 left-3 bg-white text-[10px] font-bold text-slate-800 px-2.5 py-1 rounded-lg border border-slate-200 shadow-sm">
+                                    XRF Quantometry
+                                </span>
+                            </div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <span class="material-symbols-outlined text-orange-500 text-base">analytics</span>
+                                <h3 class="text-slate-900 font-extrabold text-sm group-hover:text-orange-600 transition">Elemental Purity & Quantometry</h3>
+                            </div>
+                            <p class="text-slate-600 text-xs leading-relaxed text-left font-normal">
+                                High-precision determination of copper and graphite composition and impurity thresholds at Razi Metallurgical Research Center.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Documentation Request -->
+                    <div class="rounded-3xl p-6 bg-slate-900 text-white shadow-sm hover:shadow-xl hover:-translate-y-1 transition duration-300 flex flex-col justify-between items-center text-center">
+                        <div class="w-16 h-16 rounded-2xl bg-white/10 border border-white/20 text-orange-400 flex items-center justify-center mt-4">
+                            <span class="material-symbols-outlined text-3xl">verified</span>
+                        </div>
+                        <div class="my-4">
+                            <h3 class="text-white font-extrabold text-base mb-2">Request Complete Dossiers</h3>
+                            <p class="text-slate-300 text-xs leading-relaxed">
+                                Contact our technical engineering unit to receive comprehensive engineering datasheets and formal inspection certificates.
+                            </p>
+                        </div>
+                        <a href="#inquiry-box" class="w-full py-3 rounded-xl bg-orange-500 hover:bg-orange-600 text-white font-black text-xs transition duration-300 shadow-lg shadow-orange-500/20">
+                            Request Test Reports
+                        </a>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Dot Indicators -->
+        <div class="flex items-center justify-center gap-2 mt-10">
+            <template x-for="i in total" :key="i">
+                <button @click="current = i - 1" 
+                        class="h-2 rounded-full transition-all duration-300"
+                        :class="current === (i - 1) ? 'w-9 bg-orange-500' : 'w-2.5 bg-slate-300 hover:bg-slate-400'">
+                </button>
+            </template>
+        </div>
+
+    </div>
+
+    <!-- Image Preview Modal -->
+    <div x-show="previewModal" 
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-95"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-95"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-md"
+         style="display: none;">
+
+        <div class="relative max-w-4xl w-full bg-white border border-slate-200 rounded-3xl p-5 shadow-2xl overflow-hidden" 
+             @click.outside="previewModal = false">
+            <div class="flex justify-between items-center mb-3 px-2">
+                <span class="text-slate-900 font-extrabold text-sm" x-text="activeTitle"></span>
+                <button @click="previewModal = false" class="text-slate-500 hover:text-white p-1 rounded-xl bg-slate-100 hover:bg-slate-900 transition">
+                    <span class="material-symbols-outlined text-xl">close</span>
+                </button>
+            </div>
+            <div class="max-h-[80vh] overflow-auto rounded-2xl bg-slate-900 flex items-center justify-center p-2">
+                <img :src="activeImg" alt="Laboratory Test Documentation" class="max-w-full h-auto object-contain rounded-xl">
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

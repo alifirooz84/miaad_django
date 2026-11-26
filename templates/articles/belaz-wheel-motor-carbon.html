@@ -1,0 +1,155 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}علل خرابی و عیب‌یابی ویل موتور دامپتراک بلاز | نقش ذغال گرافیتی ص ۱۹۵{% endblock %}
+
+{% block meta_description %}راهنمای تخصصی عیب‌یابی کموتاسیون و ویل موتورهای الکتریکی تراکشن دامپتراک بلاز (BelAZ)، بررسی اثر فشار فنر جاذغالی، سایش ناهمگون و مشخصات متالورژی ذغال ص ۱۹۵.{% endblock %}
+
+{% block meta_keywords %}ویل موتور دامپتراک بلاز, ذغال ص ۱۹۵, کموتاسیون ویل موتور, ذغال گرافیتی بلاز, خرابی موتور تراکشن بلاز, میعاد صنعت سیرجان گهر, BelAZ dump truck wheel motor{% endblock %}
+
+{% block canonical %}https://miaadsanatsirjan.ir/articles/belaz-wheel-motor/{% endblock %}
+
+{% block og_title %}بررسی فنی و علل خرابی ویل موتور دامپتراک بلاز و نقش ذغال گرافیتی{% endblock %}
+{% block og_description %}تحلیل مهندسی پدیده Flashover در کموتاتور ویل موتور دامپتراک ۱۳۶ تن بلاز و معرفی ویژگی‌های ذغال ص ۱۹۵ بومی‌سازی شده.{% endblock %}
+{% block og_image %}https://miaadsanatsirjan.ir/static/images/article-3.jpg{% endblock %}
+
+{% block schema_extra %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "بررسی فنی و علل خرابی ویل موتور دامپتراک بلاز و نقش ذغال‌های گرافیتی",
+  "description": "تحلیل تخصصی عملکرد الکتروموتورهای کشنده ویل موتور دامپتراک‌های سنگین بلاز در معادن روباز و راهکارهای جلوگیری از آسیب به کموتاتور.",
+  "image": "https://miaadsanatsirjan.ir/static/images/article-3.jpg",
+  "author": {
+    "@type": "Organization",
+    "name": "دپارتمان مهندسی الکترومکانیک میعاد صنعت سیرجان گهر"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "شرکت دانش‌بنیان میعاد صنعت سیرجان گهر",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://miaadsanatsirjan.ir/static/images/logo.png"
+    }
+  },
+  "datePublished": "2024-05-05",
+  "dateModified": "2025-01-22",
+  "mainEntityOfPage": "https://miaadsanatsirjan.ir/articles/belaz-wheel-motor/"
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<article class="py-16 bg-slate-50 min-h-screen">
+    
+    <!-- هدر و تصویر شاخص مقاله -->
+    <header class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        
+        <!-- بردکرامب (Breadcrumb) جهت سئو -->
+        <nav class="flex items-center gap-2 text-xs font-bold text-slate-500 mb-6" aria-label="Breadcrumb">
+            <a href="/" class="hover:text-brand-orange transition">صفحه اصلی</a>
+            <span class="text-slate-300">/</span>
+            <a href="/#articles" class="hover:text-brand-orange transition">دانشنامه تخصصی</a>
+            <span class="text-slate-300">/</span>
+            <span class="text-slate-900">ویل موتورهای دامپتراک بلاز</span>
+        </nav>
+
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-100/80 text-orange-700 text-xs font-black border border-orange-200 mb-4">
+            <span class="material-symbols-outlined text-sm">precision_manufacturing</span>
+            <span>تراشکاری سنگین و ناوگان معدنی</span>
+        </div>
+
+        <h1 class="text-2xl sm:text-4xl lg:text-5xl font-black text-slate-900 leading-tight tracking-tight mb-6 text-right">
+            بررسی فنی، علل خرابی و کموتاسیون ویل موتورهای دامپتراک بلاز (BelAZ)
+        </h1>
+
+        <div class="flex flex-wrap items-center justify-between gap-4 py-4 border-y border-slate-200 text-xs text-slate-500">
+            <div class="flex items-center gap-3">
+                <span class="font-bold text-slate-800">نویسنده: واحد تست و کموتاسیون میعاد صنعت سیرجان گهر</span>
+                <span>•</span>
+                <span>زمان مطالعه: ۹ دقیقه</span>
+            </div>
+            <span class="font-mono text-orange-600 bg-orange-50 px-2.5 py-1 rounded-md border border-orange-200 font-bold">معادن روباز سنگ آهن</span>
+        </div>
+
+        <!-- تصویر اصلی مقاله -->
+        <div class="w-full aspect-video rounded-3xl overflow-hidden mt-8 shadow-xl border border-slate-200 bg-slate-900 relative">
+            <img src="{% static 'images/article-3.jpg' %}" 
+                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80';"
+                 alt="تعمیرات و تست ویل موتور دامپتراک بلاز" 
+                 class="w-full h-full object-cover">
+        </div>
+    </header>
+
+    <!-- محتوای متنی مقاله -->
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 text-right leading-relaxed text-slate-700">
+
+        <!-- ================= بخش ۱: معرفی سیستم کشش دامپتراک بلاز (قابل ویرایش) ================= -->
+        <section class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-r-4 border-brand-orange pr-3">
+                مکانیزم انتقال قدرت الکتریکی در دامپتراک‌های سنگین بلاز (۱۳۶ و ۲۴۰ تن)
+            </h2>
+            <p class="text-sm sm:text-base leading-8 text-slate-600">
+                دامپتراک‌های بلاروسی BelAZ (به‌ویژه مدل‌های محبوب ۷۵۱۳۱ با ظرفیت ۱۳۶ تن) به عنوان ستون فقرات باربری در معادن چادرملو، گل‌گهر و سنگان فعالیت می‌کنند. در این غول‌های معدنی، موتور دیزل یک ژنراتور اصلی را به گردش درمی‌آورد و نیروی الکتریکی تولید شده مستقیماً به <strong>دو عدد الکتروموتور تراکشن DC درون چرخ‌های عقب (Wheel Motor)</strong> منتقل می‌شود. این ویل موتورها در شرایط آب‌وهوایی بسیار خشن، با ارتعاشات سنگین جاده‌های خاکی و جریان‌های ناگهانی بالای ۲۰۰۰ آمپر کار می‌کنند.
+            </p>
+        </section>
+
+        <!-- ================= بخش ۲: شایع‌ترین عوامل خرابی و سوختگی (قابل ویرایش) ================= -->
+        <section class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-6">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-r-4 border-brand-orange pr-3">
+                علل شایع خرابی کموتاتور و پدیده خطرناک فلش‌اور (Flashover)
+            </h2>
+
+            <div class="space-y-4 text-xs sm:text-sm text-slate-600">
+                <div class="p-4 rounded-2xl bg-orange-50/60 border border-orange-200 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-orange-600 text-lg mt-0.5">warning</span>
+                    <div>
+                        <strong class="text-slate-900 block font-bold mb-1">۱. استفاده از ذغال‌های با گرید متفرقه یا فاقد تست‌های متالورژیکی:</strong>
+                        اگر ضریب اصطکاک ذغال بیش از حد بالا باشد، دمای کموتاتور به بالای ۱۸۰ درجه سانتی‌گراد می‌رسد و رزین عایق بین لامل‌ها ذوب می‌شود. از سوی دیگر، ذغال‌های بسیار نرم پودر کربن بیش از حد تولید کرده و با ایجاد پل کربنی بین تیغه‌ها سبب جرقه حلقوی کامل (Flashover) و سوختگی آرمیچر می‌شوند.
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-slate-700 text-lg mt-0.5">speed</span>
+                    <div>
+                        <strong class="text-slate-900 block font-bold mb-1">۲. فشار نامیزان فنرهای جازغالی (Brush Holders):</strong>
+                        فشار فنر روی ذغال ص ۱۹۵ باید دقیقاً بین ۱۸۰ تا ۲۲۰ گرم بر سانتی‌متر مربع تنظیم باشد. فشار کمتر باعث پرش ذغال روی لامل‌ها و جرقه شدید در دورهای بالا می‌شود و فشار بیشتر، عمر ذغال را تا ۷۰ درصد کاهش می‌دهد.
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+                    <span class="material-symbols-outlined text-slate-700 text-lg mt-0.5">cloud</span>
+                    <div>
+                        <strong class="text-slate-900 block font-bold mb-1">۳. نفوذ گردوغبار سیلیسی و رطوبت معدن:</strong>
+                        ورود ذرات ساینده به محفظه ویل موتور، فیلم طبیعی پاتینا را از بین برده و باعث خط افتادن عمیق روی سطح مس لامل‌ها می‌گردد.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= بخش ۳: راه‌حل میعاد صنعت (ذغال ص ۱۹۵ - قابل ویرایش) ================= -->
+        <section class="bg-white p-8 rounded-3xl border border-slate-200/80 shadow-sm space-y-4">
+            <h2 class="text-xl sm:text-2xl font-black text-slate-900 border-r-4 border-brand-orange pr-3">
+                نقش ذغال بومی‌سازی شده «ص ۱۹۵» میعاد صنعت در رفع معضل توقف بلازها
+            </h2>
+            <p class="text-sm sm:text-base leading-8 text-slate-600">
+                شرکت دانش‌بنیان میعاد صنعت با همکاری تیم تعمیرات ناوگان معدنی گل‌گهر و اولنگ، فرمولاسیون اختصاصی <strong>ذغال گرافیتی ص ۱۹۵ (معادل گرید بین‌المللی EQ_64K)</strong> را بازمهندسی و تولید نموده است. این ذغال دارای ساختار دانه‌بندی میکرونی همگن، کابل‌های مسی بدون قلع با پرس هیدرولیک سرد و سربندی مقاوم در برابر لرزش‌های شدید تا 40G است. نتایج میدانی نشان داده که استفاده از ص ۱۹۵، دوره تراشکاری و سنگ‌زنی لامل‌های ویل موتور را تا ۳ برابر به تعویق می‌اندازد.
+            </p>
+        </section>
+
+        <!-- بنر استعلام و مشخصات ذغال بلاز -->
+        <div class="bg-gradient-to-l from-slate-900 via-slate-950 to-slate-900 rounded-3xl p-8 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl border border-white/10">
+            <div class="space-y-2 text-right">
+                <span class="text-xs text-orange-400 font-black">تحویل فوری از انبار سیرجان</span>
+                <h3 class="text-lg sm:text-xl font-black">مشاهده کاتالوگ و مشخصات ابعادی ذغال ص ۱۹۵</h3>
+                <p class="text-xs text-slate-300">آماده تأمین سفارشات تیراژ ناوگان دامپتراک با تضمین گارانتی کموتاسیون بدون جرقه.</p>
+            </div>
+            <a href="{% url 'carbon_s195' %}" class="px-6 py-3.5 rounded-xl bg-brand-orange hover:bg-orange-600 font-black text-xs text-white shrink-0 transition shadow-lg shadow-orange-500/20">
+                صفحه فنی ذغال ص ۱۹۵
+            </a>
+        </div>
+
+    </div>
+</article>
+{% endblock %}

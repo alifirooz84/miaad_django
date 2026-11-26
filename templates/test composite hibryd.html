@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>پروپوزال فنی-اقتصادی تولید کامپوزیت‌های دندانی | واحد تحقیق و توسعه</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-body: #f1f5f9;
+      --bg-surface: #ffffff;
+      --bg-subtle: #f8fafc;
+      --primary: #0f172a;
+      --brand: #1e40af;
+      --brand-light: #3b82f6;
+      --brand-glow: rgba(59, 130, 246, 0.12);
+      --accent: #0d9488;
+      --accent-light: #ccfbf1;
+      --text-main: #1e293b;
+      --text-secondary: #475569;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --danger: #dc2626;
+      --danger-bg: #fef2f2;
+      --warning: #d97706;
+      --warning-bg: #fffbeb;
+      --success: #059669;
+      --success-bg: #ecfdf5;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-sm: 8px;
+      --shadow-lg: 0 20px 40px -15px rgba(15, 23, 42, 0.08), 0 0 1px 1px rgba(15, 23, 42, 0.03);
+      --shadow-card: 0 4px 12px -2px rgba(15, 23, 42, 0.05);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Vazirmatn", system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(30, 64, 175, 0.06) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(13, 148, 136, 0.06) 0px, transparent 50%);
+      color: var(--text-main);
+      line-height: 1.85;
+      padding: 40px 20px 90px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .document-wrapper {
+      max-width: 1040px;
+      margin: 0 auto;
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    /* ==================== هدر لوکس پروپوزال ==================== */
+    .hero-header {
+      background: linear-gradient(135deg, #090d16 0%, #172554 55%, #134e4a 100%);
+      color: #ffffff;
+      padding: 45px 50px 75px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-header::before {
+      content: "";
+      position: absolute;
+      top: -120px;
+      left: -120px;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.18) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-header::after {
+      content: "";
+      position: absolute;
+      bottom: -150px;
+      right: -80px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.16) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .header-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-confidential {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(239, 68, 68, 0.16);
+      color: #fca5a5;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      backdrop-filter: blur(8px);
+    }
+
+    .badge-confidential .dot {
+      width: 8px;
+      height: 8px;
+      background-color: #f87171;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #ef4444;
+    }
+
+    .meta-pills {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .meta-pill {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #e2e8f0;
+      padding: 5px 14px;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .meta-pill strong {
+      color: #38bdf8;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .doc-title {
+      font-size: 1.95rem;
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 14px;
+      color: #ffffff;
+      position: relative;
+      z-index: 2;
+    }
+
+    .doc-subtitle {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      font-weight: 400;
+      max-width: 850px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ==================== کارت‌های مشخصات شناور ==================== */
+    .content-body {
+      padding: 0 50px 50px;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: -42px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 10;
+    }
+
+    .info-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      box-shadow: 0 12px 24px -6px rgba(15, 23, 42, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px -8px rgba(15, 23, 42, 0.12);
+    }
+
+    .info-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      background: var(--brand-glow);
+      color: var(--brand);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-card:nth-child(4) .info-icon {
+      background: rgba(13, 148, 136, 0.12);
+      color: var(--accent);
+    }
+
+    .info-text .label {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-bottom: 3px;
+      font-weight: 500;
+    }
+
+    .info-text .val {
+      display: block;
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.4;
+    }
+
+    /* ==================== سرفصل بخش‌ها ==================== */
+    .section-block {
+      margin-bottom: 42px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f1f5f9;
+    }
+
+    .section-num {
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      flex-shrink: 0;
+      box-shadow: 0 4px 10px rgba(30, 64, 175, 0.25);
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.2px;
+    }
+
+    p {
+      text-align: justify;
+      color: var(--text-secondary);
+      font-size: 0.96rem;
+      margin-bottom: 16px;
+    }
+
+    /* ==================== خلاصه اجرایی و KPI ==================== */
+    .exec-summary-box {
+      background: linear-gradient(to left, #f8fafc, #f0f9ff);
+      border-right: 4px solid var(--brand);
+      border-radius: var(--radius-md);
+      padding: 22px 26px;
+      margin-bottom: 24px;
+      border-top: 1px solid #e0f2fe;
+      border-bottom: 1px solid #e0f2fe;
+      border-left: 1px solid #e0f2fe;
+    }
+
+    .exec-summary-box p {
+      margin-bottom: 0;
+      color: var(--text-main);
+      line-height: 1.95;
+    }
+
+    .exec-summary-box strong {
+      color: var(--brand);
+      background: rgba(59, 130, 246, 0.1);
+      padding: 1px 7px;
+      border-radius: 5px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .kpi-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px 18px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: transform 0.2s ease;
+    }
+
+    .kpi-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--brand-light), var(--accent));
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-3px);
+    }
+
+    .kpi-card .desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .kpi-card .number {
+      font-size: 1.45rem;
+      font-weight: 900;
+      color: var(--brand);
+      letter-spacing: -0.3px;
+    }
+
+    .kpi-card:nth-child(2) .number,
+    .kpi-card:nth-child(3) .number {
+      color: var(--accent);
+    }
+
+    /* ==================== کارت‌های ضرورت استراتژیک ==================== */
+    .strategy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 16px;
+    }
+
+    .strategy-card {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      position: relative;
+      transition: all 0.2s ease;
+    }
+
+    .strategy-card:hover {
+      background: var(--bg-surface);
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-card);
+    }
+
+    .strategy-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: #dbeafe;
+      color: var(--brand);
+      font-weight: 800;
+      font-size: 0.9rem;
+      margin-bottom: 12px;
+    }
+
+    .strategy-card h3 {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 8px;
+    }
+
+    .strategy-card p {
+      font-size: 0.88rem;
+      margin-bottom: 0;
+      line-height: 1.75;
+    }
+
+    /* ==================== جداول مدرن ==================== */
+    .table-container {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      margin-top: 16px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--bg-surface);
+    }
+
+    table thead th {
+      background: #0f172a;
+      color: #f8fafc;
+      padding: 14px 16px;
+      text-align: right;
+      font-weight: 700;
+      font-size: 0.86rem;
+      border-bottom: 2px solid #1e293b;
+    }
+
+    table tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-secondary);
+      vertical-align: middle;
+    }
+
+    table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    table tbody tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    table tbody tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    .step-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--brand-glow);
+      color: var(--brand);
+      font-weight: 800;
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+
+    .process-title {
+      font-weight: 800;
+      color: var(--primary);
+      white-space: nowrap;
+    }
+
+    .qc-badge {
+      display: inline-block;
+      background: var(--success-bg);
+      color: #065f46;
+      border: 1px solid #a7f3d0;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.83rem;
+      font-weight: 500;
+    }
+
+    .supply-tag {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 3px 10px;
+      border-radius: 99px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .cost-cell {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.96rem;
+      white-space: nowrap;
+    }
+
+    .total-row td {
+      background: linear-gradient(90deg, #0f172a, #1e3a8a) !important;
+      color: #ffffff !important;
+      font-weight: 800;
+      font-size: 1rem;
+      padding: 16px;
+    }
+
+    /* ==================== نقشه راه (Roadmap) ==================== */
+    .roadmap-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+
+    .phase-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .phase-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .phase-tag {
+      background: var(--brand);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 6px;
+    }
+
+    .phase-time {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 99px;
+    }
+
+    .phase-title {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    .phase-output {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      padding: 10px 12px;
+      border-radius: 8px;
+      border-right: 3px solid var(--accent);
+      line-height: 1.6;
+    }
+
+    /* ==================== کارت‌های مدیریت ریسک ==================== */
+    .risk-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .risk-item {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-right: 4px solid var(--warning);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .risk-item strong {
+      display: block;
+      color: var(--primary);
+      font-size: 0.95rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .risk-item p {
+      margin-bottom: 0;
+      font-size: 0.9rem;
+    }
+
+    /* ==================== بخش تصمیم‌گیری و تصویب ==================== */
+    .cta-decision-box {
+      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
+      border: 2px solid #bfdbfe;
+      border-radius: var(--radius-lg);
+      padding: 28px 30px;
+      margin-top: 16px;
+    }
+
+    .decision-items {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .decision-card {
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      box-shadow: 0 4px 10px rgba(30, 64, 175, 0.04);
+    }
+
+    .decision-num {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--brand);
+      color: white;
+      font-weight: 800;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .decision-card span {
+      font-size: 0.93rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.7;
+    }
+
+    /* ==================== بخش امضاها ==================== */
+    .signature-section {
+      margin-top: 50px;
+      padding-top: 30px;
+      border-top: 2px dashed var(--border);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      text-align: center;
+    }
+
+    .sig-box {
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px 18px 65px;
+      position: relative;
+    }
+
+    .sig-box::after {
+      content: "محل مهر و امضا";
+      position: absolute;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.75rem;
+      color: #94a3b8;
+      border: 1px dashed #cbd5e1;
+      padding: 4px 18px;
+      border-radius: 99px;
+    }
+
+    .sig-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .sig-name {
+      font-weight: 800;
+      color: var(--primary);
+      font-size: 0.96rem;
+    }
+
+    /* ==================== دکمه پرینت شناور ==================== */
+    .action-bar {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      z-index: 1000;
+    }
+
+    .btn-print {
+      background: linear-gradient(135deg, var(--brand), #0f766e);
+      color: #ffffff;
+      border: none;
+      padding: 14px 26px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 0.92rem;
+      box-shadow: 0 10px 25px rgba(30, 64, 175, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-print:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(30, 64, 175, 0.45);
+    }
+
+    /* ==================== واکنش‌گرایی (موبایل و تبلت) ==================== */
+    @media (max-width: 900px) {
+      .info-grid,
+      .kpi-grid,
+      .roadmap-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .strategy-grid,
+      .decision-items,
+      .signature-section {
+        grid-template-columns: 1fr;
+      }
+      .hero-header,
+      .content-body {
+        padding-right: 24px;
+        padding-left: 24px;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .info-grid,
+      .kpi-grid,
+      .roadmap-grid {
+        grid-template-columns: 1fr;
+      }
+      .doc-title {
+        font-size: 1.45rem;
+      }
+    }
+
+    /* ==================== تنظیمات چاپ استاندارد A4 ==================== */
+    @media print {
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+      body {
+        padding: 0;
+        background: #ffffff;
+        font-size: 11pt;
+      }
+      .document-wrapper {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        border-radius: 0;
+      }
+      .hero-header {
+        padding: 25px 30px 45px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+      }
+      .content-body {
+        padding: 0 15px;
+      }
+      .info-grid {
+        grid-template-columns: repeat(4, 1fr);
+        margin-top: -25px;
+        gap: 10px;
+      }
+      .kpi-grid,
+      .roadmap-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+      }
+      .strategy-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      .decision-items {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .signature-section {
+        grid-template-columns: repeat(3, 1fr);
+        break-inside: avoid;
+      }
+      .section-block,
+      .table-container,
+      .cta-decision-box {
+        break-inside: avoid;
+      }
+      .action-bar {
+        display: none !important;
+      }
+      @page {
+        size: A4;
+        margin: 12mm;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- دکمه چاپ و ذخیره PDF -->
+  <div class="action-bar">
+    <button class="btn-print" onclick="window.print()">
+      <span>🖨️</span>
+      <span>چاپ / ذخیره به عنوان PDF</span>
+    </button>
+  </div>
+
+  <div class="document-wrapper">
+    <!-- هدر پروپوزال -->
+    <header class="hero-header">
+      <div class="header-top-bar">
+        <div class="badge-confidential">
+          <span class="dot"></span>
+          <span>کاملاً محرمانه / سازمانی</span>
+        </div>
+        <div class="meta-pills">
+          <div class="meta-pill"><strong>شماره سند:</strong> RD-PR-1405/07</div>
+          <div class="meta-pill"><strong>تاریخ تنظیم:</strong> مهرماه ۱۴۰۵</div>
+          <div class="meta-pill"><strong>نسخه:</strong> ۱.۰ (نهایی)</div>
+        </div>
+      </div>
+
+      <h1 class="doc-title">پروپوزال طرح توسعه و تولید کامپوزیت‌های رزینی نانوهیبرید دندانی</h1>
+      <p class="doc-subtitle">بررسی فنی، نقشه راه فرآیندی و توجیه اقتصادی راه‌اندازی خط تولید نیمه‌صنعتی (پایلوت)</p>
+    </header>
+
+    <main class="content-body">
+      <!-- کارت‌های متادیتا -->
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/></svg>
+          </div>
+          <div class="info-text">
+            <span class="label">واحد پیشنهاد‌دهنده</span>
+            <span class="val">مدیریت تحقیق و توسعه (R&D)</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <div class="info-text">
+            <span class="label">مخاطب طرح</span>
+            <span class="val">مدیرعامل محترم و هیئت‌مدیره</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="info-text">
+            <span class="label">مدت‌زمان اجرای پایلوت</span>
+            <span class="val">۹ ماه کاری</span>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <div class="info-text">
+            <span class="label">سرمایه‌گذاری اولیه (CAPEX)</span>
+            <span class="val">برآورد اولیه: ۴.۸ میلیارد تومان</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ۱. خلاصه اجرایی -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۱</span>
+          <h2>خلاصه اجرایی (Executive Summary)</h2>
+        </div>
+        <div class="exec-summary-box">
+          <p>
+            کامپوزیت‌های دندانی یکی از حیاتی‌ترین و پرمصرف‌ترین بیومواد حوزه دندانپزشکی ترمیمی و زیبایی هستند که در حال حاضر بالغ بر <strong>۸۵ درصد</strong> از نیاز بازار داخل کشور از طریق واردات برندهای اروپایی، آمریکایی و شرق آسیا با ارزبری سالانه قابل توجه تأمین می‌گردد. با اتکا به ظرفیت‌های دانشی موجود در مهندسی مواد، سنتز پلیمر و اصلاح سطحی نانوذرات، واحد تحقیق و توسعه پس از پژوهش‌های آزمایشگاهی اولیه، طرح راه‌اندازی خط پایلوت بومی‌سازی کامپوزیت‌های لایت‌کیور نانوهیبرید و بالک‌فیل (Bulk-Fill) را تدوین کرده است. هدف این پروژه دستیابی به محصولی با انطباق کامل با استاندارد بین‌المللی <strong>ISO 4049</strong> با قیمت تمام‌شده‌ای در حدود یک‌سوم نمونه‌های وارداتی و حاشیه سود پیش‌بینی‌شده بالای ۶۰٪ می‌باشد.
+          </p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="desc">اندازه بازار سالانه کشور</div>
+            <div class="number">~۱.۵ میلیون سرنگ</div>
+          </div>
+          <div class="kpi-card">
+            <div class="desc">کاهش قیمت تمام‌شده</div>
+            <div class="number">۶۵٪ کمتر از وارداتی</div>
+          </div>
+          <div class="kpi-card">
+            <div class="desc">دوره بازگشت سرمایه</div>
+            <div class="number">۱۴ ماه</div>
+          </div>
+          <div class="kpi-card">
+            <div class="desc">فاز استاندارد هدف</div>
+            <div class="number">ISO 4049 / CE</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ۲. ضرورت استراتژیک و فرصت بازار -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۲</span>
+          <h2>ضرورت استراتژیک و فرصت بازار</h2>
+        </div>
+        <p>
+          چالش‌های واردات ناشی از نوسانات نرخ ارز، مشکلات زنجیره تأمین و الزام وزارت بهداشت مبنی بر اولویت خرید محصولات دانش‌بنیان ساخت داخل، فرصتی طلایی را برای ورود به این بازار مهیا کرده است:
+        </p>
+        <div class="strategy-grid">
+          <div class="strategy-card">
+            <div class="strategy-badge">۰۱</div>
+            <h3>تقاضای فزاینده خدمات زیبایی و ترمیمی</h3>
+            <p>جایگزینی روزافزون آمالگام سنتی با کامپوزیت‌های همرنگ دندان به دلیل الزامات پروتکل میناماتا و تقاضای جامعه.</p>
+          </div>
+          <div class="strategy-card">
+            <div class="strategy-badge">۰۲</div>
+            <h3>حاشیه سود بالا</h3>
+            <p>ارزش افزوده کامپوزیت‌های دندانی به ازای هر کیلوگرم محصول فرآوری‌شده در ردیف بالاترین نسبت‌ها در صنایع پلیمری قرار دارد.</p>
+          </div>
+          <div class="strategy-card">
+            <div class="strategy-badge">۰۳</div>
+            <h3>پتانسیل اخذ نشان دانش‌بنیان</h3>
+            <p>به دلیل ماهیت سنتز ماتریکس، اصلاح سطحی سیلانی و فرمولاسیون نانوفیلر، این محصول از امتیاز ارزیابی سطح فناوری ۱ (بالاترین سطح فناوری دانش‌بنیان) برخوردار خواهد شد.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ۳. معماری فنی محصول و دانش فرآیندی -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۳</span>
+          <h2>معماری فنی محصول و دانش فرآیندی</h2>
+        </div>
+        <p>
+          فرآیند تولید شامل پنج گام پیوسته است که نقشه راه مهندسی آن توسط واحد تحقیق و توسعه تدوین شده است:
+        </p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>مرحله فرآیند</th>
+                <th>شرح فنی عملیات</th>
+                <th>کنترل کیفیت و معیار پذیرش</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="step-badge">۱</span></td>
+                <td class="process-title">فرمولاسیون ماتریکس رزینی</td>
+                <td>اختلاط مونومرهای پایه (Bis-GMA, UDMA) با رقیق‌کننده (TEGDMA)، سیستم نوری CQ/EDMAB و پایدارکننده BHT</td>
+                <td><span class="qc-badge">ویسکوزیته کالیبره‌شده، عدم ژل‌شدن خودبه‌خودی، ضریب تبدیل پلیمریزاسیون &gt; ۶۰٪</span></td>
+              </tr>
+              <tr>
+                <td><span class="step-badge">۲</span></td>
+                <td class="process-title">سیلان‌زایی فیلرهای معدنی</td>
+                <td>اصلاح سطحی نانوسیلیکا و شیشه‌های باریم/زیرکونیا با مولکول واسط γ-MPS تحت رژیم pH کنترل‌شده</td>
+                <td><span class="qc-badge">پوشش کامل آب‌گریز، بررسی پیوند Si-O-Si از طریق آزمون FTIR</span></td>
+              </tr>
+              <tr>
+                <td><span class="step-badge">۳</span></td>
+                <td class="process-title">کامپاندینگ پربرش (Compounding)</td>
+                <td>اختلاط فاز پودر با ماتریکس مایع در میکسر دو سیاره‌ای تحت خلاء عمیق و نور ایمن زرد (Amber Light)</td>
+                <td><span class="qc-badge">بارگذاری فیلر بین ۷۸ تا ۸۲ درصد وزنی بدون پدیده داغ‌شدن خمیر</span></td>
+              </tr>
+              <tr>
+                <td><span class="step-badge">۴</span></td>
+                <td class="process-title">همگن‌سازی و حباب‌زدایی</td>
+                <td>عبور خمیر از آسیاب سه غلتکی با رولرهای زیرکونیایی جهت شکستن نانوکلوخه‌ها و حباب‌زدایی تحت خلاء ۲۰ میلی‌بار</td>
+                <td><span class="qc-badge">عدم وجود تخلخل میکروسکوپی (تست رادیواپسیتی و آزمون مقطع متالوگرافی)</span></td>
+              </tr>
+              <tr>
+                <td><span class="step-badge">۵</span></td>
+                <td class="process-title">تزریق و بسته‌بندی در سرنگ</td>
+                <td>تزریق خودکار دوز ۴ گرمی در سرنگ‌های مات مقاوم به اشعه فرابنفش و بسته‌بندی نهایی</td>
+                <td><span class="qc-badge">آب‌بندی کامل پلانجر، محافظت در برابر نور محیط</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ۴. زیرساخت و ماشین‌آلات خط پایلوت -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۴</span>
+          <h2>زیرساخت و ماشین‌آلات خط پایلوت</h2>
+        </div>
+        <p>برای راه‌اندازی فاز پایلوت در یک فضای حدود ۷۰ تا ۱۰۰ مترمربع (اتاق تمیز کلاس ۱۰۰،۰۰۰ با نور محافظ)، تجهیزات زیر ضروری است:</p>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>تجهیز / زیرساخت</th>
+                <th>مشخصات فنی</th>
+                <th>وضعیت تأمین</th>
+                <th>برآورد هزینه (میلیون تومان)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="process-title">میکسر دو سیاره‌ای تحت خلاء (Planetary Mixer)</td>
+                <td>ظرفیت ۵ تا ۱۰ لیتر، تیغه‌های استیل 316L با جکت آب‌سرد</td>
+                <td><span class="supply-tag">ساخت داخل / سفارشی</span></td>
+                <td class="cost-cell">۱,۴۰۰</td>
+              </tr>
+              <tr>
+                <td class="process-title">آسیاب سه غلتکی آزمایشگاهی (Three-Roll Mill)</td>
+                <td>رولرهای سرامیکی زیرکونیا (عاری از آلودگی فلزی)</td>
+                <td><span class="supply-tag">وارداتی / موجود در بازار</span></td>
+                <td class="cost-cell">۱,۱۰۰</td>
+              </tr>
+              <tr>
+                <td class="process-title">راکتور سیلان‌زایی و آون تحت خلاء</td>
+                <td>کنترل دقیق دما و اتمسفر گاز نیتروژن، پمپ دیافراگمی</td>
+                <td><span class="supply-tag">تولید داخل</span></td>
+                <td class="cost-cell">۴۵۰</td>
+              </tr>
+              <tr>
+                <td class="process-title">تجهیزات آزمایشگاهی تست QC</td>
+                <td>فیکسچر تست خمش ۳ نقطه‌ای، لایت‌کیور کالیبره، رادیوگرافی</td>
+                <td><span class="supply-tag">تجهیز مجدد آزمایشگاه R&D</span></td>
+                <td class="cost-cell">۶۰۰</td>
+              </tr>
+              <tr>
+                <td class="process-title">ایجاد کلین‌روم و سیستم تهویه استاندارد</td>
+                <td>فیلترهای HEPA، فیلتراسیون نور طول‌موج زیر ۵۰۰ نانومتر</td>
+                <td><span class="supply-tag">پیمانکاری</span></td>
+                <td class="cost-cell">۱,۲۵۰</td>
+              </tr>
+              <tr class="total-row">
+                <td colspan="3">مجموع سرمایه‌گذاری ثابت تجهیزاتی (CAPEX)</td>
+                <td>۴,۸۰۰ میلیون تومان</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ۵. نقشه راه و زمان‌بندی اجرا -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۵</span>
+          <h2>نقشه راه و زمان‌بندی اجرا (Roadmap)</h2>
+        </div>
+        <div class="roadmap-grid">
+          <div class="phase-card">
+            <div>
+              <div class="phase-header">
+                <span class="phase-tag">فاز ۱</span>
+                <span class="phase-time">ماه ۱ تا ۳</span>
+              </div>
+              <div class="phase-title">بهینه‌سازی فرمولاسیون و بنچ‌مارک آزمایشگاهی</div>
+            </div>
+            <div class="phase-output">
+              <strong>خروجی کلیدی:</strong> دستیابی به نمونه آزمایشگاهی پاس‌‌کننده استاندارد ISO 4049
+            </div>
+          </div>
+
+          <div class="phase-card">
+            <div>
+              <div class="phase-header">
+                <span class="phase-tag">فاز ۲</span>
+                <span class="phase-time">ماه ۴ تا ۶</span>
+              </div>
+              <div class="phase-title">تأمین تجهیزات، آماده‌سازی کلین‌روم و خط پایلوت</div>
+            </div>
+            <div class="phase-output">
+              <strong>خروجی کلیدی:</strong> نصب، کالیبراسیون و اجرای تست‌های خشک (Cold Commissioning)
+            </div>
+          </div>
+
+          <div class="phase-card">
+            <div>
+              <div class="phase-header">
+                <span class="phase-tag">فاز ۳</span>
+                <span class="phase-time">ماه ۷ و ۸</span>
+              </div>
+              <div class="phase-title">تولید بچ صفر، آزمون‌های سیتوتوکسیسیتی و کارآزمایی بالینی اولیه</div>
+            </div>
+            <div class="phase-output">
+              <strong>خروجی کلیدی:</strong> گزارش تاییدیه عدم سمیت سلولی (ISO 10993) و فیدبک دندانپزشکان
+            </div>
+          </div>
+
+          <div class="phase-card">
+            <div>
+              <div class="phase-header">
+                <span class="phase-tag">فاز ۴</span>
+                <span class="phase-time">ماه ۹ به بعد</span>
+              </div>
+              <div class="phase-title">تکمیل تکنیکال فایل و اخذ پروانه ساخت از اداره کل تجهیزات پزشکی (IMED)</div>
+            </div>
+            <div class="phase-output">
+              <strong>خروجی کلیدی:</strong> مجوز تولید رسمی و ورود به زنجیره توزیع تجاری
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ۶. ماتریس تحلیل و پوشش ریسک‌ها -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۶</span>
+          <h2>ماتریس تحلیل و پوشش ریسک‌ها</h2>
+        </div>
+        <div class="risk-list">
+          <div class="risk-item">
+            <strong>ریسک تأمین پیوسته مونومرهای با گرید پزشکی:</strong>
+            <p>با توجه به مصرف پایین وزنی این مواد در اوایل کار، سورس‌های معتبر آسیایی و آلمانی شناسایی شده و ذخیره احتیاطی برای تولید ۶ ماه اول در بودجه جاری پیش‌بینی خواهد شد.</p>
+          </div>
+          <div class="risk-item">
+            <strong>ریسک اخذ مجوزهای اداره کل تجهیزات پزشکی (IMED):</strong>
+            <p>کلیه پروتکل‌های آزمون از روز نخست بر مبنای مستندسازی Technical File مطابق استانداردهای ملی و CE تدوین می‌شود تا دوره بوروکراسی قانونی به حداقل برسد.</p>
+          </div>
+          <div class="risk-item">
+            <strong>ریسک پذیرش بالینی بازار:</strong>
+            <p>استراتژی توزیع نمونه‌های رایگان تست (Sample Testing) در دانشکده‌های دندانپزشکی معتبر و همکاری با اساتید صاحب‌نام ترمیمی در فاز ۳ پیش‌بینی شده است.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ۷. درخواست و تصمیم‌گیری مدیریتی -->
+      <section class="section-block">
+        <div class="section-header">
+          <span class="section-num">۷</span>
+          <h2>درخواست و تصمیم‌گیری مدیریتی</h2>
+        </div>
+        <div class="cta-decision-box">
+          <p>
+            با توجه به توجیه کامل فنی، پتانسیل بالای خلق ثروت، ارتقای جایگاه فناورانه شرکت و امکان بازگشت کامل سرمایه در سال اول تجاری‌سازی، واحد تحقیق و توسعه تقاضا دارد:
+          </p>
+          <div class="decision-items">
+            <div class="decision-card">
+              <div class="decision-num">۱</div>
+              <span>موافقت اصولی هیئت‌مدیره با اجرای طرح پایلوت تولید کامپوزیت‌های نانوهیبرید دندانی اعلام گردد.</span>
+            </div>
+            <div class="decision-card">
+              <div class="decision-num">۲</div>
+              <span>مبلغ پیش‌پرداخت مرحله اول (فاز تأمین و طراحی کلین‌روم) به میزان ۱.۵ میلیارد تومان به پروژه تخصیص یابد.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- بخش امضاها -->
+      <footer class="signature-section">
+        <div class="sig-box">
+          <div class="sig-title">تنظیم و پیشنهاد‌دهنده:</div>
+          <div class="sig-name">مدیریت تحقیق و توسعه (R&D)</div>
+        </div>
+        <div class="sig-box">
+          <div class="sig-title">بررسی و تأیید مالی:</div>
+          <div class="sig-name">مدیریت مالی و اقتصادی</div>
+        </div>
+        <div class="sig-box">
+          <div class="sig-title">تصویب نهایی و ابلاغ:</div>
+          <div class="sig-name">مدیرعامل محترم</div>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+</body>
+</html>

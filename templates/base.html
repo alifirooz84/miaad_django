@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- سئو و متاتگ‌های اصلی -->
+    <title>{% block title %}شرکت دانش‌بنیان میعاد صنعت سیرجان گهر | طراحی و بومی‌سازی قطعات پیشرفته متالورژی{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}شرکت دانش‌بنیان میعاد صنعت سیرجان گهر، اولین تولیدکننده ۱۰۰٪ بومی انواع ذغال‌های صنعتی الکتروموتورهای DC و AC، لاینرها و سرامیک‌های ضد سایش آلومینا و قطعات پیشرفته متالورژی پودر برای صنایع معدنی و فولادی کشور.{% endblock %}">
+    <meta name="keywords" content="{% block meta_keywords %}ذغال صنعتی, ذغال الکتریکی, ذغال موتور DC, ذغال گرافیتی, ذغال مسی, لاینر سرامیکی, سرامیک ضد سایش, ویل موتور دامپتراک, دامپتراک بلاز, میعاد صنعت سیرجان گهر, متالورژی پودر, گل گهر, گهرزمین{% endblock %}">
+    <meta name="author" content="شرکت دانش‌بنیان میعاد صنعت سیرجان گهر">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <link rel="canonical" href="{% block canonical %}https://miaadsanatsirjan.ir/{% endblock %}">
+
+    <!-- Open Graph / فیس‌بوک و شبکه‌های اجتماعی -->
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:site_name" content="میعاد صنعت سیرجان گهر">
+    <meta property="og:title" content="{% block og_title %}شرکت دانش‌بنیان میعاد صنعت سیرجان گهر | بومی‌سازی قطعات پیشرفته{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}طراحی، فرمولاسیون و ساخت تخصصی ذغال‌های گرافیتی صنعتی و لاینرهای ضد سایش سرامیکی شوت‌های انتقال سنگ آهن.{% endblock %}">
+    <meta property="og:url" content="{% block og_url %}https://miaadsanatsirjan.ir/{% endblock %}">
+    <meta property="og:image" content="{% block og_image %}https://miaadsanatsirjan.ir/static/images/logo.png{% endblock %}">
+    <meta property="og:image:alt" content="لوگوی شرکت دانش‌بنیان میعاد صنعت سیرجان گهر">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{% block twitter_title %}شرکت دانش‌بنیان میعاد صنعت سیرجان گهر{% endblock %}">
+    <meta name="twitter:description" content="{% block twitter_description %}تولیدکننده پیشگام ذغال‌های الکتریکی صنعتی و قطعات ضد سایش معدنی.{% endblock %}">
+    <meta name="twitter:image" content="{% block twitter_image %}https://miaadsanatsirjan.ir/static/images/logo.png{% endblock %}">
+
+    {% load static %}
+    <!-- آیکون‌های سایت -->
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/logo.png' %}">
+
+    <!-- ساختار داده‌های ساختاریافته (Schema.org JSON-LD) برای گوگل -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://miaadsanatsirjan.ir/#organization",
+          "name": "شرکت دانش‌بنیان میعاد صنعت سیرجان گهر",
+          "alternateName": "Miaad Sanat Sirjan Gohar",
+          "url": "https://miaadsanatsirjan.ir/",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://miaadsanatsirjan.ir/#logo",
+            "url": "https://miaadsanatsirjan.ir/static/images/logo.png",
+            "caption": "لوگوی میعاد صنعت سیرجان گهر"
+          },
+          "image": "https://miaadsanatsirjan.ir/static/images/factory.jpg",
+          "description": "تولیدکننده تخصصی ذغال‌های الکتریکی صنعتی، لاینرها و سرامیک‌های ضد سایش آلومینا و قطعات پیشرفته متالورژی.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "شهرک صنعتی شماره یک، میدان تلاش، خیابان صنعت یک",
+            "addressLocality": "سیرجان",
+            "addressRegion": "کرمان",
+            "addressCountry": "IR"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+98-998-132-0507",
+            "contactType": "technical support",
+            "areaServed": "IR",
+            "availableLanguage": ["Persian", "English"]
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://miaadsanatsirjan.ir/#website",
+          "url": "https://miaadsanatsirjan.ir/",
+          "name": "میعاد صنعت سیرجان گهر",
+          "publisher": { "@id": "https://miaadsanatsirjan.ir/#organization" },
+          "inLanguage": "fa-IR"
+        }
+      ]
+    }
+    </script>
+    {% block schema_extra %}{% endblock %}
+    
+    <!-- فونت وزیرمتن و آیکون‌های گوگل -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" rel="stylesheet" />
+    
+    <!-- استایل‌ها: فایل کامپایل‌شده + Tailwind CDN برای پشتیبانی از تمام کلاس‌های جدید -->
+    <link rel="stylesheet" href="{% static 'css/output.css' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            orange: '#F97316',
+                            orangeHover: '#EA580C',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Vazirmatn', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <style>
+        body { 
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #F8FAFC;
+        }
+
+        .bg-mesh-glow {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: 
+                radial-gradient(circle at 10% 10%, rgba(249, 115, 22, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 20%, rgba(245, 158, 11, 0.04) 0%, transparent 45%);
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="text-slate-800 antialiased selection:bg-brand-orange selection:text-white relative overflow-x-hidden" 
+      x-data="{ 
+          mobileMenu: false, 
+          productsDropdown: false, 
+          langDropdown: false 
+      }">
+
+    <div class="bg-mesh-glow"></div>
+
+    <!-- ==================== هدر شفاف و لوکس با نمایش درخشان لوگو ==================== -->
+    <header class="sticky top-0 z-50 w-full bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- لوگو و نشان رسمی شرکت با کادر جذاب و کنتراست بالا -->
+            <a href="/" class="flex items-center gap-3.5 group/logo" aria-label="صفحه اصلی میعاد صنعت">
+                <!-- کادر تیره نئونی که باعث درخشش فوق‌العاده لوگوی نارنجی می‌شود -->
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-950 p-2 border-2 border-orange-500/40 shadow-lg shadow-orange-500/20 group-hover/logo:border-orange-500 group-hover/logo:scale-105 transition duration-300 flex items-center justify-center shrink-0">
+                    <img src="{% static 'images/logo.png' %}" 
+                         alt="لوگوی میعاد صنعت سیرجان گهر" 
+                         class="w-full h-full object-contain filter drop-shadow-[0_0_6px_rgba(249,115,22,0.8)]">
+                </div>
+                <div>
+                    <span class="font-black text-sm sm:text-base text-slate-900 tracking-tight block group-hover/logo:text-brand-orange transition duration-200">
+                        میعاد صنعت سیرجان گهر
+                    </span>
+                    <div class="flex items-center gap-1.5 mt-0.5">
+                        <span class="text-[10px] text-slate-500 font-bold">بومی‌سازی قطعات متالورژی</span>
+                        <span class="text-slate-300 text-[10px]">•</span>
+                        <span class="text-[9px] text-orange-700 font-bold bg-orange-100/70 px-1.5 py-0.2 rounded border border-orange-200">دانش‌بنیان</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- منوی ناوبری دسکتاپ -->
+            <nav class="hidden lg:flex items-center gap-7 text-xs font-bold text-slate-600">
+                <a href="/#hero" class="text-brand-orange hover:text-brand-orangeHover transition">صفحه اصلی</a>
+                <a href="/#about" class="hover:text-brand-orange transition">درباره شرکت</a>
+
+                <!-- منوی آبشاری کاتالوگ محصولات -->
+                <div class="relative" 
+                     @mouseenter="productsDropdown = true" 
+                     @mouseleave="productsDropdown = false">
+                    <a href="/#products" class="flex items-center gap-1 hover:text-brand-orange transition py-2 cursor-pointer">
+                        <span>محصولات مهندسی</span>
+                        <span class="material-symbols-outlined text-sm transition-transform duration-300" :class="productsDropdown ? 'rotate-180 text-brand-orange' : ''">expand_more</span>
+                    </a>
+
+                    <!-- باکس دراپ‌داون روشن -->
+                    <div x-show="productsDropdown" 
+                         x-transition:enter="transition ease-out duration-150"
+                         x-transition:enter-start="opacity-0 translate-y-2 scale-95"
+                         x-transition:enter-end="opacity-100 translate-y-0 scale-100"
+                         x-transition:leave="transition ease-in duration-100"
+                         x-transition:leave-start="opacity-100 scale-100"
+                         x-transition:leave-end="opacity-0 translate-y-2 scale-95"
+                         class="absolute right-0 top-full pt-2 w-72 z-50 text-right"
+                         style="display: none;">
+                        
+                        <div class="rounded-2xl p-2 bg-white border border-slate-200 shadow-xl space-y-1">
+                            <a href="{% url 'carbon_s195' %}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">bolt</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">ذغال ص ۱۹۵ (بلاز)</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">معادل EQ_64K • ویل موتور دامپتراک</div>
+                                </div>
+                            </a>
+
+                            <a href="{% url 'carbon_h128' %}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">electrical_services</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">ذغال ح ۱۲۸</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">معادل RC73 • مس گرافیتی جریان سنگین</div>
+                                </div>
+                            </a>
+
+                            <a href="{% url 'carbon_h118' %}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">shield</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">ذغال ح ۱۱۸</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">معادل RC53 • ارتینگ شفت و حفاظت بیرینگ</div>
+                                </div>
+                            </a>
+
+                            <a href="{% url 'ceramic_liner' %}" class="flex items-start gap-3 p-2.5 rounded-xl hover:bg-orange-50/60 transition group/item">
+                                <div class="w-8 h-8 rounded-lg bg-orange-100 text-brand-orange flex items-center justify-center transition shrink-0">
+                                    <span class="material-symbols-outlined text-sm">precision_manufacturing</span>
+                                </div>
+                                <div>
+                                    <div class="text-xs font-black text-slate-900 group-hover/item:text-brand-orange transition">سرامیک‌های ضد سایش</div>
+                                    <div class="text-[10px] text-slate-500 mt-0.5">تایل‌های شوت آلومینا ۹۵٪ ضد ضربه</div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="/#team" class="hover:text-brand-orange transition">متخصصان شرکت</a>
+                <a href="/#partners" class="hover:text-brand-orange transition">مجتمع‌های همکار</a>
+                <a href="/#articles" class="hover:text-brand-orange transition">دانشنامه و مقالات</a>
+                <a href="/#inquiry-box" class="hover:text-brand-orange transition">استعلام فنی</a>
+            </nav>
+
+            <!-- بخش ابزارهای سمت چپ (سوئیچر زبان + دکمه استعلام) -->
+            <div class="hidden sm:flex items-center gap-3.5">
+                <!-- سوئیچر دو زبانه -->
+                <div class="relative" @click.outside="langDropdown = false">
+                    <button @click="langDropdown = !langDropdown" 
+                            type="button"
+                            class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200/80 border border-slate-200 text-slate-700 text-xs font-bold transition shadow-sm"
+                            aria-label="تغییر زبان">
+                        <span class="material-symbols-outlined text-base text-brand-orange">language</span>
+                        <span class="font-mono">FA</span>
+                        <span class="material-symbols-outlined text-xs text-slate-500 transition-transform" :class="langDropdown ? 'rotate-180' : ''">expand_more</span>
+                    </button>
+
+                    <!-- منوی دراپ‌داون زبان -->
+                    <div x-show="langDropdown" 
+                         x-transition
+                         class="absolute left-0 mt-2 w-32 rounded-xl bg-white border border-slate-200 shadow-xl p-1 z-50 text-xs"
+                         style="display: none;">
+                        
+                        <a href="/" 
+                           class="flex items-center justify-between px-3 py-2 rounded-lg bg-orange-50 text-brand-orange font-black">
+                            <span>فارسی</span>
+                            <span class="font-mono text-[10px] text-orange-600">FA</span>
+                        </a>
+                        
+                        <a href="/en/" 
+                           class="flex items-center justify-between px-3 py-2 rounded-lg text-slate-700 hover:bg-slate-50 hover:text-brand-orange transition">
+                            <span>English</span>
+                            <span class="font-mono text-[10px] text-slate-400">EN</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- دکمه نارنجی استعلام و ثبت نقشه -->
+                <a href="/#inquiry-box" class="px-5 py-2.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white text-xs font-black shadow-md shadow-orange-500/25 hover:shadow-lg hover:shadow-orange-500/35 hover:scale-105 active:scale-95 transition-all duration-300 flex items-center gap-1.5 group/btn">
+                    <span>ثبت استعلام و نقشه</span>
+                    <span class="material-symbols-outlined text-sm group-hover/btn:-translate-x-0.5 transition duration-300">arrow_left</span>
+                </a>
+            </div>
+
+            <!-- دکمه منوی همبرگری موبایل -->
+            <button @click="mobileMenu = !mobileMenu" class="lg:hidden text-slate-700 p-2 rounded-xl hover:bg-slate-100 focus:outline-none" aria-label="منوی موبایل">
+                <span class="material-symbols-outlined text-2xl" x-text="mobileMenu ? 'close' : 'menu'"></span>
+            </button>
+
+        </div>
+
+        <!-- منوی کشویی موبایل -->
+        <div x-show="mobileMenu" 
+             x-transition 
+             class="lg:hidden bg-white border-b border-slate-200 px-6 py-5 shadow-xl space-y-3.5 text-right"
+             style="display: none;">
+            
+            <div class="flex items-center justify-between pb-3 border-b border-slate-100">
+                <span class="text-xs font-bold text-slate-500">زبان وب‌سایت / Language:</span>
+                <div class="inline-flex rounded-lg bg-slate-100 p-1 border border-slate-200">
+                    <a href="/" class="px-3 py-1 rounded-md text-xs font-bold bg-brand-orange text-white">فارسی</a>
+                    <a href="/en/" class="px-3 py-1 rounded-md text-xs font-bold text-slate-600 hover:text-slate-900">English</a>
+                </div>
+            </div>
+
+            <a href="/#hero" @click="mobileMenu = false" class="block text-xs font-bold text-slate-900">صفحه اصلی</a>
+            <a href="/#about" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">درباره شرکت</a>
+            
+            <div class="py-2 border-y border-slate-100 space-y-2">
+                <span class="block text-[11px] font-bold text-brand-orange">محصولات کاتالوگ:</span>
+                <a href="{% url 'carbon_s195' %}" @click="mobileMenu = false" class="block text-xs text-slate-500 pr-3 hover:text-brand-orange">• ذغال ص ۱۹۵ (دامپتراک بلاز)</a>
+                <a href="{% url 'carbon_h128' %}" @click="mobileMenu = false" class="block text-xs text-slate-500 pr-3 hover:text-brand-orange">• ذغال ح ۱۲۸ (مس گرافیتی)</a>
+                <a href="{% url 'carbon_h118' %}" @click="mobileMenu = false" class="block text-xs text-slate-500 pr-3 hover:text-brand-orange">• ذغال ح ۱۱۸ (ارتینگ شفت)</a>
+                <a href="{% url 'ceramic_liner' %}" @click="mobileMenu = false" class="block text-xs text-slate-500 pr-3 hover:text-brand-orange">• سرامیک‌های ضد سایش شوت</a>
+            </div>
+
+            <a href="/#team" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">متخصصان شرکت</a>
+            <a href="/#partners" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">مجتمع‌های همکار</a>
+            <a href="/#articles" @click="mobileMenu = false" class="block text-xs font-semibold text-slate-600">دانشنامه و مقالات فنی</a>
+            <a href="/#inquiry-box" @click="mobileMenu = false" class="block text-xs font-bold text-brand-orange">استعلام فنی و ارسال نقشه</a>
+        </div>
+    </header>
+
+    <!-- محتوای اصلی صفحات -->
+    <main id="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- ==================== فوتر مدرن با تم روشن شرکتی (Light Theme) ==================== -->
+    <footer class="relative bg-slate-100 text-slate-600 text-xs pt-16 pb-10 border-t border-slate-200 overflow-hidden z-10">
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- بنر فوقانی استعلام مهندسی معکوس -->
+            <div class="mb-16 rounded-3xl bg-white border border-slate-200 shadow-sm p-6 sm:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                
+                <div class="space-y-2 text-center md:text-right">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-orange-50 text-orange-700 border border-orange-200">
+                        <span class="w-2 h-2 rounded-full bg-brand-orange animate-ping"></span>
+                        <span>واحد تحقیق، توسعه و بازمهندسی متالورژی</span>
+                    </div>
+                    
+                    <h3 class="text-slate-900 text-xl sm:text-2xl font-black tracking-tight">
+                        نیاز به <span class="text-brand-orange">مهندسی معکوس</span> یا ساخت سفارشی قطعات دارید؟
+                    </h3>
+                    
+                    <p class="text-slate-500 text-xs sm:text-sm max-w-2xl leading-relaxed">
+                        نقشه‌ها، نمونه‌ها و مشخصات فنی تجهیزات خود را جهت ارزیابی آزمایشگاهی، شبیه‌سازی متریال و برآورد هزینه برای کارشناسان ما ارسال کنید.
+                    </p>
+                </div>
+
+                <div class="w-full md:w-auto flex-shrink-0">
+                    <a href="/#inquiry-box" 
+                       class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-brand-orange hover:bg-brand-orangeHover text-white font-bold text-sm shadow-md shadow-orange-500/20 hover:scale-105 active:scale-95 transition-all duration-300">
+                        <span>ارسال درخواست استعلام فنی</span>
+                        <span class="material-symbols-outlined text-base">arrow_left</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- ستون‌های فوتر -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-12 border-b border-slate-200">
+                
+                <!-- ستون ۱: معرفی و مشخصات شرکت -->
+                <div class="lg:col-span-5 space-y-4 text-right">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-2xl bg-slate-950 p-2 border border-orange-500/40 flex items-center justify-center shadow-md shadow-orange-500/20">
+                            <img src="{% static 'images/logo.png' %}" alt="لوگوی میعاد صنعت" class="w-full h-full object-contain filter drop-shadow-[0_0_6px_rgba(249,115,22,0.8)]">
+                        </div>
+                        <div>
+                            <span class="text-slate-900 font-black text-base tracking-tight block">شرکت دانش‌بنیان میعاد صنعت سیرجان گهر</span>
+                            <span class="text-[11px] text-brand-orange font-bold">به دانش سازیم، به کوشش برآریم</span>
+                        </div>
+                    </div>
+
+                    <p class="text-slate-500 text-xs leading-relaxed">
+                        پیشرو در حوزه متالورژی پودر، بومی‌سازی و مهندسی معکوس قطعات پیشرفته صنعتی شامل انواع ذغال‌های الکتریکی موتورهای جریان مستقیم، رینگ‌های لغزان، لاینرها و سرامیک‌های آلومینایی ضد سایش و مقاومت‌های پرقدرت در مجتمع‌های معدنی و فولادی کشور.
+                    </p>
+
+                    <div class="flex flex-wrap gap-2 pt-1">
+                        <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] text-slate-600 font-medium shadow-sm">بومی‌سازی ۱۰۰٪ قطعات متالورژی</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] text-slate-600 font-medium shadow-sm">آنالیز متالورژیکی SEM</span>
+                        <span class="px-2.5 py-1 rounded-lg bg-white border border-slate-200 text-[10px] text-slate-600 font-medium shadow-sm">تست‌های استاندارد IEC</span>
+                    </div>
+                </div>
+
+                <!-- ستون ۲: لینک‌های دسترسی سریع -->
+                <div class="lg:col-span-3 text-right">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-1.5 h-4 bg-brand-orange rounded-full"></div>
+                        <h4 class="text-slate-900 font-bold text-sm">دسترسی و خدمات</h4>
+                    </div>
+                    <ul class="space-y-2.5 text-xs text-slate-500">
+                        <li><a href="/#about" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_left</span> درباره شرکت و اهداف</a></li>
+                        <li><a href="/#products" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_left</span> کاتالوگ ذغال‌ها و قطعات</a></li>
+                        <li><a href="/#team" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_left</span> کادر فنی و متخصصان</a></li>
+                        <li><a href="/#partners" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_left</span> همکاری با صنایع معدنی</a></li>
+                        <li><a href="/#articles" class="hover:text-brand-orange transition flex items-center gap-1"><span class="material-symbols-outlined text-xs">chevron_left</span> دانشنامه مقالات فنی</a></li>
+                        <li><a href="/#inquiry-box" class="text-brand-orange font-bold hover:underline flex items-center gap-1"><span class="material-symbols-outlined text-xs">assignment</span> ثبت استعلام و سفارش</a></li>
+                    </ul>
+                </div>
+
+                <!-- ستون ۳: اطلاعات تماس و دفتر فنی -->
+                <div class="lg:col-span-4 space-y-3 text-right">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-1.5 h-4 bg-brand-orange rounded-full"></div>
+                        <h4 class="text-slate-900 font-bold text-sm">اطلاعات تماس</h4>
+                    </div>
+                    
+                    <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-start gap-2.5">
+                        <span class="material-symbols-outlined text-brand-orange text-base mt-0.5">location_on</span>
+                        <span class="text-slate-600 text-xs">استان کرمان، سیرجان، شهرک صنعتی شماره یک، میدان تلاش، خیابان صنعت یک</span>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-emerald-600 text-base">call</span>
+                            <span class="text-slate-500 text-xs">تماس مستقیم / واتس‌اپ:</span>
+                        </div>
+                        <a href="tel:09981320507" class="text-slate-900 font-mono font-bold hover:text-brand-orange transition" dir="ltr">0998 132 0507</a>
+                    </div>
+
+                    <div class="p-3 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-amber-500 text-base">mail</span>
+                            <span class="text-slate-500 text-xs">پست الکترونیک:</span>
+                        </div>
+                        <a href="mailto:miaadsanatsirjan@gmail.com" class="text-slate-700 font-mono text-xs hover:text-brand-orange transition" dir="ltr">miaadsanatsirjan@gmail.com</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- نوار پایینی کپی‌رایت -->
+            <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-slate-500 text-[11px]">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <p>© ۱۴۰۴ - تمامی حقوق مادی و معنوی متعلق به شرکت دانش‌بنیان میعاد صنعت سیرجان گهر می‌باشد.</p>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-1.5 text-xs">
+                        <span>زبان:</span>
+                        <a href="/" class="text-brand-orange font-bold hover:underline">فارسی</a>
+                        <span>|</span>
+                        <a href="/en/" class="text-slate-500 hover:text-brand-orange transition">English</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}ذغال ارتینگ ح ۱۱۸ | میعاد صنعت سیرجان گهر{% endblock %}
+
+{% block content %}
+<!-- هدر صفحه محصول -->
+<section class="relative pt-32 pb-16 bg-slate-950 overflow-hidden flex items-center justify-center min-h-[40vh]">
+    <div class="absolute inset-0 bg-[url('{% static 'images/industrial-bg.jpg' %}')] bg-cover bg-center opacity-70 brightness-90 contrast-110"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/20"></div>
+    
+    <div class="relative z-10 text-center px-4 max-w-4xl mx-auto space-y-4">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold shadow-sm backdrop-blur-md">
+            <span class="material-symbols-outlined text-sm">shield</span>
+            گرید: RC53 | کد: ح ۱۱۸
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-black text-white tracking-tight leading-tight">
+            ذغال ارتینگ شفت و حفاظت بیرینگ <span class="text-transparent bg-clip-text bg-gradient-to-l from-emerald-400 to-teal-300">ح ۱۱۸</span>
+        </h1>
+        <p class="text-slate-300 text-sm sm:text-base font-light max-w-2xl mx-auto">
+            تخلیه جریان القایی، حفاظت در برابر صاعقه و جلوگیری قطعی از پیتینگ
+        </p>
+    </div>
+</section>
+
+<!-- بخش جزئیات محصول و مشخصات فنی -->
+<section class="py-20 bg-slate-50 relative">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            
+            <!-- ستون سمت راست: تصویر محصول -->
+            <div class="lg:col-span-5 sticky top-24">
+                <div class="w-full rounded-[2rem] overflow-hidden relative shadow-2xl border-4 border-white bg-white group">
+                    <img src="{% static 'products/carbon-h118.png' %}" 
+                         onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80';"
+                         alt="ذغال ارتینگ ح ۱۱۸" 
+                         class="w-full h-auto object-cover group-hover:scale-105 transition duration-700 ease-out">
+                    
+                    <div class="absolute top-4 right-4 px-3 py-1.5 rounded-xl bg-white/90 backdrop-blur-md text-slate-900 font-black text-xs shadow-sm flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        حذف کامل پیتینگ
+                    </div>
+                </div>
+            </div>
+
+            <!-- ستون سمت چپ: اطلاعات و جدول فنی -->
+            <div class="lg:col-span-7 space-y-8">
+                
+                <div class="glass-panel rounded-3xl p-8 shadow-lg border border-slate-200/60 bg-white/60 backdrop-blur-xl">
+                    <h2 class="text-2xl font-black text-slate-900 mb-4 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-emerald-600">description</span>
+                        معرفی فنی محصول
+                    </h2>
+                    <p class="text-sm text-slate-600 leading-relaxed text-justify font-medium">
+                        ذغال‌های ارتینگ سری ح ۱۱۸ (Shaft Grounding) منحصراً برای هدایت و تخلیه مطمئن جریان‌های سرگردان و القایی شفت به زمین طراحی شده‌اند. این گرید با دارا بودن ترکیبات ویژه و هدایت اتصال فوق‌العاده سریع، مانع از تخلیه الکتریکی در داخل بلبرینگ‌ها (پدیده پیتینگ) شده و از تخریب زودهنگام قطعات مکانیکی در توربین‌های بادی، قطارهای شهری و موتورهای VFD جلوگیری می‌کند.
+                    </p>
+                </div>
+
+                <div class="glass-panel rounded-3xl p-8 shadow-lg border border-slate-200/60 bg-white/60 backdrop-blur-xl">
+                    <h2 class="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">
+                        <span class="material-symbols-outlined text-emerald-600">analytics</span>
+                        مشخصات کاربردی و استانداردها
+                    </h2>
+                    
+                    <!-- جدول مشخصات -->
+                    <div class="overflow-hidden rounded-2xl border border-slate-200">
+                        <table class="w-full text-sm text-right">
+                            <thead class="bg-slate-100/80 text-slate-700 font-black text-xs uppercase">
+                                <tr>
+                                    <th scope="col" class="px-6 py-4">پارامتر</th>
+                                    <th scope="col" class="px-6 py-4">مشخصات / مقدار</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200/80 bg-white">
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-6 py-4 font-bold text-slate-900">ترکیب متریال (نقره/مس)</td>
+                                    <td class="px-6 py-4 text-emerald-700 font-mono font-bold">گرید ویژه ارتینگ</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition bg-slate-50/50">
+                                    <td class="px-6 py-4 font-bold text-slate-900">سرعت هدایت اتصال</td>
+                                    <td class="px-6 py-4 text-emerald-700 font-mono font-bold">فوق‌العاده سریع (Instantaneous)</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition">
+                                    <td class="px-6 py-4 font-bold text-slate-900">کاربرد اصلی</td>
+                                    <td class="px-6 py-4 text-emerald-700 font-bold">حفاظت بلبرینگ و تجهیزات دوار</td>
+                                </tr>
+                                <tr class="hover:bg-slate-50 transition bg-slate-50/50">
+                                    <td class="px-6 py-4 font-bold text-slate-900">استاندارد مرجع</td>
+                                    <td class="px-6 py-4 text-emerald-700 font-mono font-bold">IEC 60034</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- دکمه‌های اکشن -->
+                <div class="flex flex-col sm:flex-row gap-4 pt-4">
+                    <a href="{% url 'home' %}#inquiry-box" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-black py-4 rounded-xl text-sm shadow-xl shadow-emerald-900/20 transition duration-300 flex items-center justify-center gap-2 group">
+                        <span class="material-symbols-outlined text-base group-hover:scale-110 transition">engineering</span>
+                        <span>ثبت سفارش و ارسال نقشه</span>
+                    </a>
+                    <a href="{% static 'docs/H118-Datasheet.pdf' %}" target="_blank" class="flex-1 bg-white hover:bg-slate-50 text-emerald-700 border-2 border-emerald-600 font-black py-4 rounded-xl text-sm transition duration-300 flex items-center justify-center gap-2 group">
+                        <span class="material-symbols-outlined text-base group-hover:-translate-y-1 transition">download</span>
+                        <span>دانلود کاتالوگ فنی (PDF)</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
